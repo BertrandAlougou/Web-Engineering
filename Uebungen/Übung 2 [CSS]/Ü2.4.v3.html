@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ü2.4</title>
+    <style>
+        /* Basic styling */
+
+        body {
+            background-color: #a9d7d1;
+            font-family: "Roboto Thin", sans-serif;
+        }
+
+        h1, h4 {
+            text-align: center;
+        }
+
+        main {
+            background-color: snow;
+            padding: 20px 113px 0.0005em;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 20px;
+
+        }
+
+        /* Table layout adjustments */
+        table {
+            width: 100%;
+        }
+
+        table td:first-child {
+            width: 70%;
+            text-align: right;
+            padding-right: 11px;
+        }
+
+        table td:last-child {
+            width: 30%;
+        }
+
+        /* Input and select styling */
+
+        input[type="checkbox"], input[type="checkbox"] label {
+            display: inline-block;
+        }
+
+        tr:not(.radio-group) , select{
+            line-height: 2em;
+        }
+
+
+        /*--- Adjusting radio buttons --- */
+
+        .radio-group input:nth-of-type(1){
+            margin-top: 45px;
+        }
+
+        .radio-group input:nth-of-type(1),
+        .radio-group input:nth-of-type(2),
+        .radio-group input:nth-of-type(3) {
+            margin-left: 0.05pt;
+            margin-bottom: 10px;
+        }
+        .radio-group input:nth-of-type(3){
+            margin-bottom: 20px;
+        }
+
+
+
+
+
+        /*--- Adjusting check boxes ---  */
+
+        /* Adjusting checkbox group to make the checkboxes appear below the label */
+        .checkbox-group #first-label{
+            margin-bottom: 70px;
+            margin-top: 2px;
+        }
+
+        .checkbox-group input:nth-of-type(2) {
+            display: inline; /* Makes the first label a block element */
+            margin-right: 1px;
+        }
+        .checkbox-group input:nth-of-type(3) {
+            display: inline; /* Makes the first label a block element */
+            margin-right: 2px;
+        }
+
+        /* Specific improvements for form elements */
+         .checkbox-group label {
+            display: inline-block;
+            margin-left: 0.2em;
+            line-height: 1em;
+        }
+
+
+
+        #role-select {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            width: 40%; /* Make inputs full width relative to their containing cell */
+        }
+
+        #fcc-select {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+            width: 70%; /* Make inputs full width relative to their containing cell */
+            box-sizing: border-box; /* Ensures padding is included within the width */
+
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Survey Form</h1>
+</header>
+<main>
+    <table>
+        <thead>
+        <h4>Let us know how we can improve freeCodeCamp</h4>
+        </thead>
+        <tbody>
+        <!-- Name -->
+        <tr>
+            <td><label for="name"><b>* Name:</b></label></td>
+            <td><input type="text" id="name" name="name" placeholder="Enter your name" required /></td>
+        </tr>
+        <!-- Email -->
+        <tr>
+            <td><label for="email"><b>* Email:</b></label></td>
+            <td><input type="text" id="email" name="email" placeholder="Enter your Email" required /></td>
+        </tr>
+        <!-- Age -->
+        <tr>
+            <td><label for="age"><b>* Age:</b></label></td>
+            <td><input type="text" id="age" name="age" placeholder="Age" required /></td>
+        </tr>
+        <!-- Role -->
+        <tr>
+            <td id="role"><label for="role-select">Which option best describes your current role?</label></td>
+            <td>
+                <select name="role" id="role-select">
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="Web Engineer">Web Engineer</option>
+                </select>
+            </td>
+        </tr>
+        <!-- Recommend -->
+        <tr class="radio-group">
+            <td><label id="first-label1">How likely is it that you would recommend freeCodeCamp to a friend?</label></td>
+            <td>
+                <input type="radio" id="definitely" name="recommendation" value="Definitely">
+                <label for="definitely">Definitely</label><br>
+                <input type="radio" id="maybe" name="recommendation" value="Maybe">
+                <label for="maybe">Maybe</label><br>
+                <input type="radio" id="not-sure" name="recommendation" value="Not Sure">
+                <label for="not-sure">Not sure</label><br>
+            </td>
+        </tr>
+        <!-- Likes -->
+        <tr>
+            <td><label for="fcc-select">What do you like most in FCC?</label></td>
+            <td>
+                <select name="like" id="fcc-select">
+                    <option value="">Select an option</option>
+                    <option value="choice-1">Choice 1</option>
+                    <option value="choice-2">Choice 2</option>
+                </select>
+            </td>
+        </tr>
+        <!-- Improvements -->
+        <tr class="checkbox-group">
+            <td><label id="first-label">Things that should be improved in the future (Check all that apply):</label></td>
+                <td>
+                <input type="checkbox" id="fep" name="future-improvements" value="Font-end Projects">
+                <label for="fep">Front-end Projects</label>
+
+                <input type="checkbox" id="bep" name="future-improvements" value="Back-end Projects">
+                <label for="bep">Back-end Projects</label>
+
+                <input type="checkbox" id="dv" name="future-improvements" value="Data Visualization">
+                <label for="dv">Data Visualization</label>
+                </td>
+
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
