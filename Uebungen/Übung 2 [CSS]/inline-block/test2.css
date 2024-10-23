@@ -1,0 +1,65 @@
+/* Form container styles */
+.form-container {
+    background-color: #cde2e4; /* Light green-blue background */
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Form heading */
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+/* Form row */
+.form-row {
+    margin-bottom: 15px;
+    text-align: left; /* Aligns form content to the left */
+}
+
+.form-row label {
+    display: inline-block;
+    width: 200px;
+    text-align: right;
+    margin-right: 20px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="email"],
+.form-row input[type="number"],
+.form-row select {
+    width: 250px;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Radio buttons and checkboxes alignment */
+.form-row input[type="radio"],
+.form-row input[type="checkbox"] {
+    margin-left: 20px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Wireframe</title>
+    <style>
+
+       body{
+           background-color: #a9d7d1;
+           font-family: "Roboto Thin",sans-serif;
+           text-align: center;
+       }
+       main{
+           background-color: snow ;
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           margin: 15px;
+           padding-bottom: 0;
+           border-top-left-radius: 20px;
+           border-top-right-radius: 20px;
+           font-size: 16px;
+          font-weight: 600;
+       }
+
+       div{
+           position: relative;
+           bottom: 0;
+       }
+
+       #main-container{
+
+           width: 80%; /* Adjust width */
+           margin: 0 auto; /* Center the form horizontally */
+           padding: 20px;
+
+       }
+
+
+
+      .form-row{
+          margin-bottom: 15px;
+          text-align: right; /* Aligns form content to the left */
+      }
+
+       .form-row label {
+           display: inline-block;
+           width: 50%;
+           text-align: right;
+           margin-left: 0;
+           margin-right: 0;
+       }
+
+
+       .form-row input{
+           display: inline-block;
+           width: 15%;
+           text-align: left;
+           margin-left: 20px;
+           margin-right: 20px;
+       }
+
+       .form-row select{
+           padding-top: 5px;
+           padding-bottom: 5px;
+           margin-left: 50px;
+           margin-right: 50px;
+       }
+
+       #role-select{
+           width: 69px;
+       }
+
+        #fcc-select{
+
+            margin-right: 1px;
+
+        }
+
+        .checkbox-inline, .radio-inline{
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>Survey Form</h1>
+</header>
+<main>
+            <h4>Let us know how we can improve freeCodeCamp</h4>
+            <div id="main-container">
+                <form action="/submit" method="post">
+                    <!-- Name -->
+                                <div class="form-row">
+                                <label for="name">*Name:</label>
+                                    <input type="text" id="name" name="name" placeholder="Enter your name" required><br>
+                                </div>
+                    <!-- Email -->
+                                <div class="form-row">
+                                <label for="email">*Email:</label>
+                                <input type="email" id="email" name="email" placeholder="Enter your Email" required><br>
+                                </div>
+                    <!-- Age -->
+                                <div class="form-row">
+                                <label for="age">*Age:</label>
+                                <input id="age" id="age" name="age"  placeholder="Age" required><br>
+                                </div>
+                    <!-- Role -->
+                                <div class="form-row">
+                                <label for="role-select">Which option best describes your current role?</label>
+                                <select name="role" id="role-select">
+                                    <option value="student">Student</option>
+                                    <option value="teacher">Teacher</option>
+                                    <option value="Web Engineer">Web Engineer</option>
+                                </select>
+                                </div>
+                    <!-- Recommend -->
+                                <div class="form-row radio-inline">
+                                <label>How likely is that you would recommend freeCodeCamp to a friend?</label>
+                                <input type="radio" id="definitely" name="recommendation" value="Definitely">
+                                <label for="definitely" class="select-button">Definitely</label>
+                                <input type="radio" id="maybe" name="recommendation" value="Maybe">
+                                <label for="maybe" class="select-button">Maybe</label>
+                                <input type="radio" id="not-sure" name="recommendation" value="Not Sure">
+                                <label for="not-sure" class="select-button">Not sure</label>
+                                </div>
+                    <!-- Likes -->
+                                <div class="form-row">
+                                <label for="fcc-select">What do you like most in FCC?</label>
+                                <select name="role" id="fcc-select">
+                                    <option value="">Select an option</option>
+                                    <option value="choice-1">Choice 1</option>
+                                    <option value="choice-2">Choice 2</option>
+                                </select>
+                                </div>
+                    <!-- improvements -->
+                            <div  class="form-row checkbox-inline">
+                            <label class="select-button">Things that should be improved in the future (Check all that apply):</label>
+                            <input type="checkbox" id="fep" name="future-improvements" value="Font-end Projects">
+                            <label for="fep" class="select-button">Front-end Projects</label>
+                            <input type="checkbox" id="bep" name="future-improvements" value="Back-end Projects">
+                            <label for="bep">Back-end Projects</label>
+                            <input type="checkbox" id="dv" name="future-improvements" value="Data Visualization">
+                            <label for="dv" class="select-button">Data Visualization</label>
+                            </div>
+                </form>
+
+          </div>
+
+
+</main>
+</body>
+</html>
