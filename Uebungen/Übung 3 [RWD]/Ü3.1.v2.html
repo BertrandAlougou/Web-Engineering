@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout with Flexbox</title>
+    <style>
+
+        /* Base styling */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            max-width: 1880px;
+            margin: 20px;
+        }
+
+        /* Block styles */
+        .box {
+            height: 80vh;
+        }
+
+        .red {
+            background-color: red;
+            margin-bottom: 10px;
+            height: 30vh;
+        }
+
+        .green {
+            background-color: limegreen;
+        }
+
+        .blue {
+            background-color: blue;
+            margin-left: 7px;
+            margin-right: 7px;
+        }
+
+        .pink {
+            background-color: magenta;
+        }
+
+
+        .content {
+            display: flex;
+        }
+
+        /* Desktop-first layout */
+        .container .red {
+            width: 100%;
+        }
+
+        .content .green {
+            flex: 1;
+        }
+
+        .content .blue {
+            flex: 3;
+        }
+
+        .content .pink {
+            flex: 1;
+        }
+
+        /* Mobile layout */
+        @media screen and (min-width: 480px) {
+            .container {
+                flex-wrap:wrap;
+            }
+
+            .container > .blue{
+                width:70%
+            }
+            .container > .green{
+                width:30%;
+            }
+        }
+
+        /* Tablet layout */
+        @media screen and (min-width: 768px) {
+            .container {
+                flex-wrap:wrap;
+            }
+
+            .red{
+                order:-2;
+            }
+             .green{
+                order:-1;
+            }
+            .container > .blue{
+                width:50%;
+            }
+            .container > .green,
+            .container > .pink{
+                width:25%;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="box red"></div>
+    <div class="content">
+        <div class="box green"></div>
+        <div class="box blue"></div>
+        <div class="box pink"></div>
+    </div>
+</div>
+</body>
+</html>

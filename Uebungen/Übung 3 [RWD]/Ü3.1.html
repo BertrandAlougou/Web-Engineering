@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexbox</title>
+    <style>
+
+        *{
+            box-sizing: border-box;
+        }
+
+        .flex-container{
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .left-aside, .right-aside, article{
+            margin-top: 10px;
+        }
+
+        header{
+            background-color: red;
+            flex: 1;
+
+        }
+
+        .left-aside{
+            flex: 1;
+            background-color: #4CAF50;
+        }
+        article{
+            background-color: blue;
+            display: flex;
+            flex: 3;
+        }
+
+        .right-aside{
+            flex: 1;
+            background-color: darkorchid;
+
+        }
+
+
+        @media screen and (max-width: 900px){
+           #aside.right-aside{width: 100%; height: 5rem;background-color:darkorchid }
+           #aside.left-aside{width: 100%; height: 5rem; background-color: #4CAF50}
+            #article{width: 60%}
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="flex-container">
+    <div class="flex-header">
+<nav>
+</nav>
+    </div>
+    <div class="flex-main">
+<aside class="left-aside">
+</aside>
+<article>
+</article>
+<aside class="right-aside">
+</aside>
+    </div>
+
+</div>
+</body>
+</html>

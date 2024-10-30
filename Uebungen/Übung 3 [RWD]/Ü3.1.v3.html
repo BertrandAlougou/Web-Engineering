@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="">
+<style>
+    *{
+        box-sizing:border-box;
+    }
+
+    .container{
+        display:flex;
+        flex-wrap:wrap;
+        height: 100vh;
+        padding: 2rem;
+    }
+
+    .container > * {
+        width: 100%;
+
+    }
+
+    .header{
+        background-color: #ff2500;
+        height: 20vh;
+    }
+
+    .left, .main, .right{
+        height: 80vh;
+        margin-top: 0.5rem;
+
+    }
+    .left{
+        background-color: #2cee27;
+    }
+    .main{
+        background-color: #0533ff;
+
+
+    }
+    .right{
+        background-color: #ea3efe;
+    }
+
+    @media screen and (min-width:450px){
+        .container > .main{
+            width:70%
+        }
+        .container > .left{
+            width:30%;
+        }
+    }
+
+    @media screen and (min-width:600px){
+        .container > .header{
+            order:-2;
+        }
+        .container > .left{
+            order:-1;
+        }
+        .container > .main{
+            width:50%;
+        }
+        .container > .left,
+        .container > .right{
+            width:25%;
+        }
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Flexbox 3.1</title>
+</head>
+
+<body>
+
+
+<div class="container">
+    <header class="header"></header>
+    <section class="left"></section>
+    <main class="main"></main>
+    <aside class="right"></aside>
+</div>
+
+</body>
+
+</html>
