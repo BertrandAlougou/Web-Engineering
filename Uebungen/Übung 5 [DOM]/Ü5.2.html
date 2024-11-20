@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rednerliste</title>
+    <style>
+        h1{
+            font-size: 3rem;
+        }
+        label{
+            font-size: 1.5rem;
+        }
+
+        input, button {
+            font-size: 1rem;
+            margin-left: 0.125rem;
+        }
+
+        button{
+            background-color: white;
+            border: 1px solid grey;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+        .speaker {
+            list-style: none;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+<h1>Rednerliste</h1>
+<label>Neuer Redner:</label>
+<label for="new-speaker"></label><input type="text" id="new-speaker" placeholder="Name">
+<button id="add-speaker">Hinzufügen</button>
+
+<ul id="speaker-list"></ul>
+
+<script>
+    const speakerList = document.getElementById('speaker-list');
+    let newSpeakerInput = document.getElementById('new-speaker');
+    const addSpeakerButton = document.getElementById('add-speaker');
+
+    let currentTimer = null;
+    let timers = {};
+
+    function addSpeaker(name) {
+        if (!name) return;
+
+        const speaker = document.createElement('li');
+        speaker.className = 'speaker';
+        speaker.textContent = `${name} 00:00:00 `;
+
+        const timeDisplay = document.createElement('span');
+        timeDisplay.className = 'time';
+        speaker.appendChild(timeDisplay);
+
+        const startStopButton = document.createElement('button');
+        startStopButton.textContent = 'Start!';
+        speaker.appendChild(startStopButton);
+
+        let seconds = 0;
+
+        function updateDisplay() {
+            const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+            const secs = String(seconds % 60).padStart(2, '0');
+            timeDisplay.textContent = `${hours}:${minutes}:${secs} `;
+        }
+
+        function start() {
+            stopAllTimers();
+            startStopButton.textContent = 'Stop!';
+            currentTimer = setInterval(() => {
+                seconds++;
+                updateDisplay();
+            }, 1000);
+            timers[name] = { timer: currentTimer, seconds };
+        }
+
+        function stop() {
+            clearInterval(currentTimer);
+            currentTimer = null;
+            startStopButton.textContent = 'Start!';
+        }
+
+        startStopButton.onclick = function() {
+            if (currentTimer) {
+                stop();
+            } else {
+                start();
+            }
+        };
+
+        speakerList.appendChild(speaker);
+        start();
+    }
+
+    function stopAllTimers() {
+        if (currentTimer) {
+            clearInterval(currentTimer);
+            currentTimer = null;
+        }
+    }
+
+    addSpeakerButton.onclick = function() {
+        addSpeaker(newSpeakerInput.value);
+        newSpeakerInput.value = '';
+        newSpeakerInput.focus();
+    };
+
+    newSpeakerInput.onkeydown = function(event) {
+        if (event.key === 'Enter') {
+            addSpeakerButton.click();
+        }
+    };
+</script>
+</body>
+</html>

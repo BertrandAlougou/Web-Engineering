@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Test</title>
+</head>
+<body>
+<h1>Performance Test for Text Insertion Methods</h1>
+<div id="results"></div>
+
+<script>
+    // Function to measure performance of a method
+    function measurePerformance(method, element, text) {
+        const iterations = 1000; // Number of times to run the method for testing
+        const start = performance.now();
+
+        for (let i = 0; i < iterations; i++) {
+            if (method === 'innerHTML') {
+                element.innerHTML = text;
+            } else if (method === 'innerText') {
+                element.innerText = text;
+            } else if (method === 'textContent') {
+                element.textContent = text;
+            } else if (method === 'outerHTML') {
+                element.outerHTML = `<div id="testElement">${text}</div>`;
+                element = document.getElementById('testElement'); // Re-select element after outerHTML overwrite
+            }
+        }
+
+        const end = performance.now();
+        return (end - start) / iterations; // Average time per operation
+    }
+
+    // Function to display results in a table
+    function displayResults(results) {
+        const resultsDiv = document.getElementById('results');
+
+        // Create the table
+        const table = document.createElement('table');
+        table.style.border = '1px solid black';
+        table.style.borderCollapse = 'collapse';
+
+        // Create table header
+        const header = table.insertRow();
+        ['Method', 'Average Time (ms)'].forEach(text => {
+            const th = document.createElement('th');
+            th.style.border = '1px solid black';
+            th.style.padding = '8px';
+            th.innerText = text;
+            header.appendChild(th);
+        });
+
+        // Insert each result as a row in the table
+        results.forEach(result => {
+            const row = table.insertRow();
+
+            const methodCell = row.insertCell();
+            methodCell.style.border = '1px solid black';
+            methodCell.style.padding = '8px';
+            methodCell.innerText = result.method;
+
+            const timeCell = row.insertCell();
+            timeCell.style.border = '1px solid black';
+            timeCell.style.padding = '8px';
+            timeCell.innerText = result.time.toFixed(4);
+        });
+
+        // Append the table to the results div
+        resultsDiv.appendChild(table);
+    }
+
+    // Run the performance tests
+    function runTests() {
+        const testElement = document.createElement('div');
+        testElement.id = 'testElement';
+        document.body.appendChild(testElement);
+
+        const text = 'Sample Text';
+        const methods = ['innerHTML', 'innerText', 'textContent', 'outerHTML'];
+        const results = methods.map(method => {
+            const time = measurePerformance(method, testElement, text);
+            return { method, time };
+        });
+
+        displayResults(results);
+    }
+
+    runTests(); // Execute the tests when the script loads
+
+</script>
+</body>
+</html>
