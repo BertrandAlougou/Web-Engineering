@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchrones JavaScript - Übung 8.2</title>
+</head>
+<body>
+<h1>Zeilenweise Konkatenation</h1>
+<div id="output"></div>
+
+<script>
+    // Asynchrone Funktion, um eine Datei mit fetch zu laden
+    async function loadFile(url) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Fehler beim Laden von ${url}: ${response.statusText}`);
+        }
+        return response.text();
+    }
+
+    // Asynchrone Funktion zur Verarbeitung
+    async function concatenateFiles() {
+        try {
+            // Dateien parallel laden
+            const [contentA, contentB] = await Promise.all([
+                loadFile('A.txt'),
+                loadFile('B.txt')
+            ]);
+
+            // Inhalte in Zeilen aufteilen
+            const linesA = contentA.split('\n');
+            const linesB = contentB.split('\n');
+
+            // Zeilenweise Konkatenation
+            const concatenatedLines = linesA.map((lineA, index) => {
+                const lineB = linesB[index] || ''; // Falls B weniger Zeilen hat
+                return `${lineA} ${lineB}`;
+            });
+
+            // Ausgabe auf der Webseite
+            const outputDiv = document.getElementById('output');
+            concatenatedLines.forEach(line => {
+                const paragraph = document.createElement('p');
+                paragraph.textContent = line;
+                outputDiv.appendChild(paragraph);
+            });
+        } catch (error) {
+            console.error('Fehler:', error);
+        }
+    }
+
+    // Start der Verarbeitung
+    concatenateFiles();
+</script>
+
+</body>
+</html>

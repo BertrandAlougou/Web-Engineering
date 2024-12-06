@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWW-Navigator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: grid;
+            grid-template-rows: auto auto 1fr auto;
+            height: 100vh;
+        }
+
+        header {
+            background-color: #b33d3d;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #b33d3d;
+            padding: 0.5rem 0;
+        }
+
+        #navbar button {
+            background-color: #ddd;
+            border: 2px solid #bbb;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        #navbar button:hover,
+        #navbar button.active {
+            background-color: #aaa;
+            border-color: #888;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: 200px 1fr 300px;
+            grid-gap: 0;
+            height: 100%;
+        }
+
+        nav, aside {
+            background-color: #d8a5a5;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            border-radius: 0;
+        }
+
+        nav button {
+            background-color: #ddd;
+            color: black;
+            border: 2px solid #bbb;
+            padding: 0.5rem 1rem;
+            margin: 0.3rem;
+            cursor: pointer;
+            text-align: left;
+            font-size: 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav button:hover,
+        nav button.active {
+            background-color: #aaa;
+            border-color: #888;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section {
+            background-color: #cde8f7;
+            padding: 0;
+        }
+
+        aside {
+            color: white;
+            padding: 0;
+        }
+
+        footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+            margin: 0;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>WWW-Navigator</h1>
+</header>
+<div id="navbar">
+    <button data-tab="html">HTML</button>
+    <button data-tab="css">CSS</button>
+    <button data-tab="javascript">JavaScript</button>
+    <button data-tab="other">Other</button>
+</div>
+<main>
+    <nav id="submenu">
+        <!-- Dynamische Untermenü-Navigation -->
+    </nav>
+    <section>
+        <h2 id="title">Dokumentation</h2>
+        <p id="description">Wählen Sie ein Thema aus, um mehr zu erfahren.</p>
+    </section>
+    <aside>
+        <h2>Additional Information:</h2>
+        <div id="references">Links to external resources will appear here.</div>
+    </aside>
+</main>
+<footer>
+    Footer: <a href="#">Sitemap</a><a href="#">Home</a><a href="#">News</a><a href="#">Contact</a><a href="#">About</a>
+</footer>
+<script>
+    const data = {
+        html: {
+            elemente: {
+                content: "HTML-Elemente sind die Bausteine einer Webseite. Beispiele: <div>, <p>, <span>, <h1> bis <h6>.",
+                references: [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element",
+                    "https://www.w3schools.com/html/html_elements.asp"
+                ]
+            },
+            attribute: {
+                content: "HTML-Attribute sind zusätzliche Informationen für ein Element, wie class, id oder style.",
+                references: [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes",
+                    "https://www.w3schools.com/html/html_attributes.asp"
+                ]
+            },
+            formulare: {
+                content: "HTML-Formulare ermöglichen Benutzereingaben. Beispiele: <form>, <input>, <button>, <select>.",
+                references: [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form",
+                    "https://www.w3schools.com/html/html_forms.asp"
+                ]
+            },
+            "semantische tags": {
+                content: "Semantische Tags wie <header>, <main>, <section> helfen Suchmaschinen und Tools, die Struktur einer Seite zu verstehen.",
+                references: [
+                    "https://developer.mozilla.org/en-US/docs/Glossary/Semantics",
+                    "https://www.w3schools.com/html/html5_semantic_elements.asp"
+                ]
+            },
+            medien: {
+                content: "HTML unterstützt Multimedia wie Bilder (<img>), Audio (<audio>) und Videos (<video>).",
+                references: [
+                    "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img",
+                    "https://www.w3schools.com/html/html_media.asp"
+                ]
+            }
+        },
+        css: {
+            selectors: {
+                content: "CSS-Selektoren bestimmen, welche HTML-Elemente gestaltet werden...",
+                references: ["https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors"]
+            },
+            colors: {
+                content: "Mit CSS-Farben können Sie Hintergrundfarben, Schriftfarben usw. definieren...",
+                references: ["https://developer.mozilla.org/en-US/docs/Web/CSS/color"]
+            }
+        },
+        javascript: {
+            function: {
+                content: "JavaScript-Funktionen sind grundlegende Bausteine für die Wiederverwendbarkeit von Code...",
+                references: ["https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions"]
+            },
+            object: {
+                content: "Objekte in JavaScript repräsentieren Sammlungen von Eigenschaften...",
+                references: ["https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects"]
+            }
+        }
+    };
+
+    const navbar = document.getElementById("navbar");
+    const submenu = document.getElementById("submenu");
+    const title = document.getElementById("title");
+    const description = document.getElementById("description");
+    const references = document.getElementById("references");
+
+    navbar.addEventListener("click", (event) => {
+        const tab = event.target.getAttribute("data-tab");
+        if (data[tab]) {
+            loadSubmenu(tab, data[tab]);
+            setActiveButton(event.target, navbar);
+        }
+    });
+
+    submenu.addEventListener("click", (event) => {
+        const subTopic = event.target.getAttribute("data-topic");
+        const tab = event.target.getAttribute("data-tab");
+        if (data[tab] && data[tab][subTopic]) {
+            loadContent(subTopic, data[tab][subTopic]);
+            setActiveButton(event.target, submenu);
+        }
+    });
+
+    function loadSubmenu(tab, topics) {
+        submenu.innerHTML = "";
+        for (const topic in topics) {
+            const button = document.createElement("button");
+            button.textContent = topic;
+            button.setAttribute("data-topic", topic);
+            button.setAttribute("data-tab", tab);
+            submenu.appendChild(button);
+        }
+    }
+
+    function loadContent(subTopic, content) {
+        title.textContent = subTopic;
+        description.textContent = content.content;
+        references.innerHTML = content.references
+            .map(ref => `<a href="${ref}" target="_blank">${ref}</a>`)
+            .join("");
+    }
+
+    function setActiveButton(button, container) {
+        const buttons = container.querySelectorAll("button");
+        buttons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+    }
+</script>
+</body>
+</html>
