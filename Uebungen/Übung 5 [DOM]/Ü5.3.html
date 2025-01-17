@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topological Sort Web App</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Textarea styling */
+        textarea {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        /* Button styling */
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Result styling */
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            max-width: 400px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 18px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            textarea, #result {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<h1>Topological Sort</h1>
+<label for="relation">Enter Relationships (e.g., A -> B):</label>
+<textarea id="relation" rows="5" cols="30" placeholder="A -> B, B -> C"></textarea>
+<button onclick="performTopSort()">Sort</button>
+
+<h2>Sorted Result:</h2>
+<div id="result"></div>
+
+<script>
+    function parseInput(input) {
+        const relations = input.split(',');
+        const graph = new Map();
+
+        relations.forEach(relation => {
+            const [from, to] = relation.trim().split('->').map(node => node.trim());
+            if (!graph.has(from)) graph.set(from, []);
+            if (!graph.has(to)) graph.set(to, []);
+            graph.get(from).push(to);
+        });
+
+        return graph;
+    }
+
+    function topologicalSort(graph) {
+        const inDegree = new Map();
+        graph.forEach((_, node) => inDegree.set(node, 0));
+
+        graph.forEach((neighbors) => {
+            neighbors.forEach(neighbor => {
+                inDegree.set(neighbor, inDegree.get(neighbor) + 1);
+            });
+        });
+
+        const queue = [];
+        inDegree.forEach((deg, node) => {
+            if (deg === 0) queue.push(node);
+        });
+
+        const sorted = [];
+        while (queue.length > 0) {
+            const node = queue.shift();
+            sorted.push(node);
+
+            graph.get(node).forEach(neighbor => {
+                inDegree.set(neighbor, inDegree.get(neighbor) - 1);
+                if (inDegree.get(neighbor) === 0) queue.push(neighbor);
+            });
+        }
+
+        if (sorted.length !== graph.size) throw new Error("Graph has a cycle!");
+        return sorted;
+    }
+
+    function performTopSort() {
+        const input = document.getElementById('relation').value;
+        const graph = parseInput(input);
+
+        try {
+            const result = topologicalSort(graph);
+            document.getElementById('result').innerText = result.join(' -> ');
+        } catch (error) {
+            document.getElementById('result').innerText = error.message;
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+header{
+    background-color: #333;
+    color: white;
+    padding: 15px 20px 20px 20px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: small;
+
+
+    & nav {
+
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        justify-content:center;
+        gap: 20px;
+    }
+
+    & a{
+        color: snow;
+        text-decoration: none;
+    }
+
+    /**
+    & ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden ;
+
+        & li{
+            float: left;
+            padding: 10px;
+            cursor: pointer;
+         }
+    }
+    **/
+
+}
+
+body {
+    margin: 0;
+    font-size:small;
+    background-color: snow;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    display: flex;
+    flex-direction: column;
+
+    & main{
+        padding: 20px;
+        flex: 1;
+    }
+}
+
+
+h1{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+    border: 1px solid black;
+    margin: 2em;
+}
+
+#grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    justify-content: center;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#text{
+    display: grid;
+
+    grid-template-rows: 0fr 0fr 0fr 1fr;
+    /**grid-area: 1 / 2 ; */
+    margin: 1em;
+    gap: 3em;
+    padding-top: 8em;
+    text-align: center;
+    font-size: medium;
+
+}
+
+#text p {
+    align-self: center; /* Vertically align the paragraphs in the middle */
+    text-align: center; /* Horizontally center the text within each paragraph */
+
+
+}
+
+.button1{
+    border: hidden orange;
+    border-radius: 0.5em;
+    color: white;
+    background-color: orange;
+    padding: 10px 10px;
+    width: 20em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: fantasy;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2{
+    border: hidden orange;
+    border-radius: 0.5em;
+    color: white;
+    background-color: orange;
+    padding: 15px 15px;
+    width: 30em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: fantasy;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+footer{
+    background-color: rgb(1, 1, 8);
+    margin: 0;
+    padding-bottom: 2em;
+    padding-top: 4em;
+
+    & nav {
+
+        display: grid;
+        grid-template-rows: auto;
+        justify-content:center;
+        text-align: center;
+        gap: 5px;
+    }
+
+    & a{
+        color: snow;
+        text-decoration: none;
+        font-family: 'Courier New', Courier, monospace;
+    }
+}

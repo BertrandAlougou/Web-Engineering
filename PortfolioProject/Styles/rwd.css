@@ -1,0 +1,98 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+#main-header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+#main-header h1 {
+    margin: 0;
+}
+
+/* Navigation Bar */
+#navbar {
+    background-color: #444;
+    color: #fff;
+}
+
+#navbar ul {
+    display: flex;
+    justify-content: center; /* Flexbox: Centers the links */
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+#navbar ul li {
+    margin: 0 10px;
+}
+
+#navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Showcase Area */
+#showcase {
+    background: url('your-image.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+#showcase h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+/* Main and Sidebar Layout */
+.container {
+    display: grid; /* Grid layout */
+    grid-template-columns: 2fr 1fr; /* 2:1 ratio for main and sidebar */
+    gap: 20px; /* Space between columns */
+}
+
+#main {
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+#sidebar {
+    background-color: #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Footer */
+#main-footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+/* Responsive Design: Mobile First */
+@media (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column; /* Stack navigation links vertically */
+    }
+
+    .container {
+        grid-template-columns: 1fr; /* Single column layout */
+    }
+}

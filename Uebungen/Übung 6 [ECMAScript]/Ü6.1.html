@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klammerpaare prüfen</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid gray;
+            border-radius: 4px;
+        }
+        input[type="text"].invalid {
+            border-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Klammerpaare prüfen</h1>
+<label for="inputString">Geben Sie eine Zeichenkette ein:</label>
+<input type="text" id="inputString" placeholder="Zeichenkette mit Klammern eingeben">
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const inputField = document.getElementById("inputString");
+
+        const isBalanced = (str, pairs) => {
+            const stack = [];
+            const openers = Object.keys(pairs);
+            const closers = Object.values(pairs);
+
+            for (const char of str) {
+                if (openers.includes(char)) {
+                    stack.push(char);
+                } else if (closers.includes(char)) {
+                    if (stack.length === 0 || pairs[stack.pop()] !== char) {
+                        return false;
+                    }
+                }
+            }
+            return stack.length === 0;
+        };
+
+        // Standard-Klammerpaare
+        const defaultPairs = {
+            "[": "]",
+            "(": ")",
+            "{": "}"
+        };
+
+        inputField.addEventListener("input", () => {
+            const value = inputField.value;
+            if (isBalanced(value, defaultPairs)) {
+                inputField.classList.remove("invalid");
+            } else {
+                inputField.classList.add("invalid");
+            }
+        });
+
+        // Tests mit console.assert
+        console.assert(isBalanced("({[]})", defaultPairs) === true, "Test 1 fehlgeschlagen");
+        console.assert(isBalanced("{[()]}", defaultPairs) === true, "Test 2 fehlgeschlagen");
+        console.assert(isBalanced("{[(])}", defaultPairs) === false, "Test 3 fehlgeschlagen");
+        console.assert(isBalanced("{{[[(())]]}}", defaultPairs) === true, "Test 4 fehlgeschlagen");
+
+        // Bonus: Benutzerdefinierte Klammerpaare
+        const customPairs = {
+            "<": ">",
+            "«": "»"
+        };
+
+        console.assert(isBalanced("<<>>", customPairs) === true, "Test 5 fehlgeschlagen");
+        console.assert(isBalanced("«<»>", customPairs) === false, "Test 6 fehlgeschlagen");
+    });
+
+</script>
+</body>
+</html>

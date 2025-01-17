@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WWW-Navigator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #800000;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        #main-menu {
+            display: flex;
+            justify-content: center;
+            background-color: #f2f2f2;
+            padding: 10px 0;
+        }
+
+        #main-menu button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #e6e6e6;
+            cursor: pointer;
+        }
+
+        #main-menu button:hover {
+            background-color: #cccccc;
+        }
+
+        #sub-menu {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-right: 1px solid #ddd;
+            width: 200px;
+            float: left;
+        }
+
+        #content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #800000;
+            color: white;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <h1>WWW-Navigator</h1>
+</header>
+
+<nav id="main-menu">
+    <button data-topic="html">HTML</button>
+    <button data-topic="css">CSS</button>
+    <button data-topic="javascript">JavaScript</button>
+    <button data-topic="other">Other</button>
+</nav>
+
+<aside id="sub-menu">
+    <!-- Untermenü wird dynamisch generiert -->
+</aside>
+
+<main id="content">
+    <h2>Dokumentation</h2>
+    <p>Wählen Sie ein Oberthema und einen Fachbegriff aus, um die Dokumentation zu sehen.</p>
+</main>
+
+<footer>
+    <p>Footer: <a href="#">Sitemap</a> | <a href="#">Home</a> | <a href="#">News</a> | <a href="#">Contact</a> | <a href="#">About</a></p>
+</footer>
+
+<script>
+    // Daten für die Fachbegriffe und Dokumentationen
+    const topics = {
+        html: {
+            name: "HTML",
+            terms: {
+                "Tag": "Ein HTML-Tag wird verwendet, um Elemente im HTML-Dokument zu definieren.",
+                "Attribute": "Attribute geben zusätzliche Informationen zu HTML-Tags.",
+                "Element": "HTML-Elemente sind Bausteine eines HTML-Dokuments."
+            }
+        },
+        css: {
+            name: "CSS",
+            terms: {
+                "Selector": "Ein CSS-Selektor wird verwendet, um HTML-Elemente zu stylen.",
+                "Box Model": "Das Box-Modell beschreibt den Aufbau eines HTML-Elements mit Padding, Border und Margin.",
+                "Flexbox": "Flexbox ist ein Layout-Modul für flexible Layouts."
+            }
+        },
+        javascript: {
+            name: "JavaScript",
+            terms: {
+                "Promise": "Ein Promise ist ein Objekt, das einen zukünftigen Wert repräsentiert.",
+                "async": "async/await wird für die Arbeit mit asynchronem Code verwendet.",
+                "fetch: "
+            }
+        }
+    };
+
+    // Elemente abrufen
+    const mainMenu = document.getElementById("main-menu");
+    const subMenu = document.getElementById("sub-menu");
+    const content = document.getElementById("content");
+
+    // Event-Listener für das Hauptmenü
+    mainMenu.addEventListener("click", (event) => {
+        const topicKey = event.target.dataset.topic;
+        if (topics[topicKey]) {
+            renderSubMenu(topicKey);
+            renderContent("Wählen Sie einen Fachbegriff aus dem Untermenü.");
+        }
+    });
+
+    // Untermenü generieren
+    function renderSubMenu(topicKey) {
+        const terms = topics[topicKey].terms;
+        subMenu.innerHTML = ""; // Untermenü leeren
+        for (const term in terms) {
+            const button = document.createElement("button");
+            button.textContent = term;
+            button.addEventListener("click", () => renderContent(terms[term]));
+            subMenu.appendChild(button);
+        }
+    }
+
+    // Dokumentation anzeigen
+    function renderContent(text) {
+        content.innerHTML = `<h2>Dokumentation</h2><p>${text}</p>`;
+    }
+
+</script>
+</body>
+</html>

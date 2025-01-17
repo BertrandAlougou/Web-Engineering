@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js" lang="">
+<style>
+    .grid{
+        display:grid;
+        grid-template-areas:
+        'header'
+        'left-side'
+        'main'
+        'right-side';
+        height: 100vh;
+    }
+
+    .grid > *{
+        padding:1rem;
+    }
+
+    .grid > .header{
+        grid-area:header;
+        background-color: #ff2500;
+    }
+    .grid > .main{
+        grid-area:main;
+        background: #0533ff;
+    }
+    .grid > .left-side{
+        grid-area:left-side;
+        background: #2cee27;
+    }
+    .grid > .right-side{
+        grid-area:right-side;
+        background: #ea3efe;
+    }
+
+    @media screen and (min-width:800px){
+        .grid {
+            grid-template-columns: 30% 70%;
+            grid-template-areas:
+            'header header'
+            'left-side main'
+            'right-side right-side';
+        }
+    }
+
+    @media screen and (min-width:1100px){
+        .grid {
+            grid-template-columns: 25% 25% 25% 25%;
+            grid-template-areas:
+            'header header header header'
+            'left-side main main right-side';
+        }
+    }
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grid 3.2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div class="grid">
+    <header class="header"></header>
+    <main class="main"></main>
+    <section class="left-side"></section>
+    <section class="right-side"></section>
+</div>
+
+</body>
+
+</html>
