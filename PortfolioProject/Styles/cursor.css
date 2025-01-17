@@ -13,13 +13,13 @@ body{
 .cursor-dot{
     width: 5px;
     height: 5px;
-    background-color: white;
+    background-color: #000000;
 }
 
 .cursor-outline{
     width: 30px;
     height: 30px;
-    border: 2px solid hsla(0,0%, 100%, 0.5);
+    border: 2px solid hsl(224, 46%, 11%);
 
 }
 
