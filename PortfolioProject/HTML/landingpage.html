@@ -1,4 +1,3 @@
-<!-- Landing Page: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Landing Page</title>
     <link rel="stylesheet" href="../Styles/landingpage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Link to the external CSS file for cursor styling -->
+    <link rel="stylesheet" href="../Styles/cursor.css">
 </head>
 <body>
-<section class="landing-page">
-    <header>
-        <div class="logo">Logo</div>
-    </header>
-    <main>
-        <h1>Welcome to my Portfolio Website</h1>
-        <a href="homepage.html" class="cta-button">Explore My Work
-            <span class="tooltip">Click to view portfolio</span>
-        </a>
-        <p class="guidance-message">Go to Portfolio Website</p>
-    </main>
-    <div class="background-image"></div>
-</section>
+<nav id="navbar">
+    <div class="logo"></div>
+</nav>
+<main class="landing-main">
+    <h1>Welcome to my Portfolio Website</h1>
+    <a href="homepage.html" class="cta-button">Know about Me</a>
+    <p class="guidance">Go to Portfolio Website</p>
+</main>
+<div class="background-image"></div>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot" data-cursor-dot></div>
+<div class="cursor-outline" data-cursor-outline></div>
+
+<script src="../JavaScript/cursor.js"></script>
+<script src="../JavaScript/landingpage.js"></script>
+
 </body>
 </html>
