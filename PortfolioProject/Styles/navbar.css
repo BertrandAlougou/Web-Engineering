@@ -1,0 +1,77 @@
+/* navbar.css */
+.top-navbar {
+    background-color: #333; /* Dark background color */
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #247f9c; /* Highlight on hover */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .menu-icon {
+        display: flex; /* Show the menu icon on small screens */
+    }
+
+    .nav-links {
+        display: none; /* Hide the links by default */
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: block; /* Show the links when active */
+    }
+}

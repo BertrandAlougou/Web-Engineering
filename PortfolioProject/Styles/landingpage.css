@@ -2,7 +2,7 @@
 body {
     font-family: 'Lora', serif;
     margin: 0;
-    background: #000000 url('../Images/My pictures/background-landing.jpg') no-repeat fixed center center;
+    background: #000000 url('../Images/My pictures/img-1.JPG') no-repeat fixed center center;
     color: #f5f5f5;
     background-size: cover;
     height: 100vh;
@@ -23,7 +23,7 @@ body::after {
     right: 0;
     width: 50%;
     height: 100%;
-    background: url('../Images/My pictures/background-landing.jpg') no-repeat center center fixed;
+    background: url('../Images/My pictures/img-1.JPG') no-repeat center center fixed;
     background-size: cover;
     animation: splitScreenRight 1.5s ease-out forwards;
     z-index: -1;

@@ -1,9 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Hallo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="../Styles/navbar.css">
+    <link rel="stylesheet" href="../Styles/page.css">
+    <link rel="stylesheet" href="../Styles/footer.css">
 </head>
 <body>
-Hallo Welt!
+
+<!-- Include Navbar -->
+<div id="navbar-container"></div>
+
+<!-- Main Content -->
+<div id="content">
+    <h1>Welcome to My Portfolio</h1>
+    <p>This is the home page.</p>
+</div>
+
+<!-- Include Footer -->
+<div id="footer-container"></div>
+
+<script>
+    // Load Navbar and Footer using fetch
+    document.getElementById('navbar-container').innerHTML = await fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => data);
+
+    document.getElementById('footer-container').innerHTML = await fetch('footer.html')
+        .then(response => response.text())
+        .then(data => data);
+</script>
+
 </body>
 </html>

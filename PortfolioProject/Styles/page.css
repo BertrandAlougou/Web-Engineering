@@ -1,0 +1,22 @@
+/* page.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content {
+    padding: 100px 20px 20px; /* Add space to account for fixed navbar */
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    color: #333;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+}

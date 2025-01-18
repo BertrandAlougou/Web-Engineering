@@ -1,63 +1,108 @@
+/* homepage.css */
+
+/* Global styles for the page */
 body {
     font-family: 'Lora', serif;
     margin: 0;
     padding: 0;
-    line-height: 1.5;
+    box-sizing: border-box;
 }
 
+#content {
+    padding: 100px 20px; /* Add space to account for fixed navbar */
+    text-align: center;
+}
+
+/* Navbar Styles */
 .global-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
+    background-color: #333;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.global-nav .logo {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    margin-top: 0;
+}
+
+.nav-links li {
+    display: inline-block;
 }
 
 .nav-links a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18px;
+    transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    text-decoration: underline;
+    color: #f39c12;
 }
 
-.dropdown-menu, .sub-dropdown, .project-list {
+/* Dropdown and submenu styles */
+.dropdown-menu, .sub-dropdown {
     display: none;
-    list-style: none;
     position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-}
-
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
+    background-color: #333;
     padding: 10px;
 }
 
+.nav-links li:hover .dropdown-menu {
+    display: block;
+}
+
+/* Footer Styles */
 footer {
-    text-align: center;
+    background-color: #333;
+    color: #fff;
     padding: 20px;
-    background: #333;
-    color: white;
+    text-align: center;
 }
 
 footer a {
-    color: #007BFF;
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: #247f9c;
+}
+
+/* Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        font-size: 30px;
+        color: #fff;
+        background: none;
+        border: none;
+        cursor: none;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .global-nav .logo {
+        margin-right: auto;
+    }
 }
