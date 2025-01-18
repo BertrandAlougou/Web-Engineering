@@ -135,8 +135,8 @@ body::after {
 
 /* Logo Styling */
 .logo {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 140px;
     background-image: url('../Images/My pictures/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;
