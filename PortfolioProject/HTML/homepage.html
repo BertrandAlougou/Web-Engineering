@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jean's Portfolio - Homepage</title>
-    <link rel="stylesheet" href="../Styles/homepage.css">
+    <title>Portfolio - Homepage</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -22,17 +21,7 @@
 <!-- Include Footer -->
 <div id="footer-container"></div>
 
-<!-- JavaScript to Load Navbar and Footer -->
-<script>
-    // Load Navbar and Footer using fetch
-    document.getElementById('navbar-container').innerHTML = await fetch('../navbar.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('navbar-container').innerHTML = data);
-
-    document.getElementById('footer-container').innerHTML = await fetch('../footer.html')
-        .then(response => response.text())
-        .then(data => document.getElementById('footer-container').innerHTML = data);
-</script>
-
+<!-- Include JavaScript Loading page components -->
+<script src="../JavaScript/page.js"></script>
 </body>
 </html>

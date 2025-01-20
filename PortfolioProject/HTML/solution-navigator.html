@@ -2,9 +2,262 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Navigator</title>
+    <link rel="stylesheet" href="styles/solution-navigator.css">
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Top Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        header .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        header a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        header a:hover {
+            color: #00bcd4;
+        }
+
+        .language-switch {
+            display: flex;
+            gap: 10px;
+        }
+
+        .language-switch button {
+            padding: 5px 10px;
+            border: none;
+            background-color: #00bcd4;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .language-switch button:hover {
+            background-color: #0288d1;
+        }
+
+        /* Subnavbar */
+        .subnavbar {
+            position: sticky;
+            top: 50px; /* Adjust to match header height */
+            background-color: #f4f4f4;
+            z-index: 999;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .subnavbar ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 0;
+            gap: 20px;
+        }
+
+        .subnavbar li {
+            padding: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .subnavbar li:hover {
+            background-color: #e0e0e0;
+        }
+
+        .subnavbar a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .subnavbar a.active {
+            font-weight: bold;
+            color: #00bcd4;
+        }
+
+        /* Section Styling */
+        .section {
+            min-height: 100vh;
+            padding: 120px 20px; /* Adjust padding for navbar overlap */
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sub-section {
+            padding: 20px;
+            margin: 10px auto;
+            max-width: 900px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercises {
+            background-color: #e7f4ff;
+        }
+
+        .solutions {
+            background-color: #f9f1e6;
+        }
+
+        .references {
+            background-color: #fff8e1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
+<!-- Top Navbar -->
+<header>
+    <div class="nav-links">
+        <a href="#home">Solution Navigator</a>
+    </div>
+    <div class="language-switch">
+        <button id="english">English</button>
+        <button id="german">Deutsch</button>
+    </div>
+</header>
 
+<!-- Subnavbar -->
+<div class="subnavbar">
+    <ul>
+        <li><a href="#html" class="active">HTML</a></li>
+        <li><a href="#css">CSS</a></li>
+        <li><a href="#javascript">JavaScript</a></li>
+        <li><a href="#php">PHP</a></li>
+        <li><a href="#security">Web App Security</a></li>
+    </ul>
+</div>
+
+<!-- Sections -->
+<section id="home" class="section fade-in">
+    <h2 data-en="Solution Navigator" data-de="Lösungsnavigator">Solution Navigator</h2>
+    <p data-en="Welcome to the Solution Navigator!" data-de="Willkommen im Lösungsnavigator!">
+        Welcome to the Solution Navigator!
+    </p>
+</section>
+
+<!-- HTML Section -->
+<section id="html" class="section fade-in">
+    <h2 data-en="HTML" data-de="HTML">HTML</h2>
+    <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+        <h3>Exercises</h3>
+        <p>Exercise details for HTML go here.</p>
+    </div>
+    <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+        <h3>Solutions</h3>
+        <p>Solutions to HTML exercises go here.</p>
+    </div>
+    <div class="sub-section references" data-en="References" data-de="Referenzen">
+        <h3>References</h3>
+        <p>HTML lecture notes and references go here.</p>
+    </div>
+</section>
+
+<!-- CSS Section -->
+<section id="css" class="section fade-in">
+    <h2 data-en="CSS" data-de="CSS">CSS</h2>
+    <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+        <h3>Exercises</h3>
+        <p>Exercise details for CSS go here.</p>
+    </div>
+    <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+        <h3>Solutions</h3>
+        <p>Solutions to CSS exercises go here.</p>
+    </div>
+    <div class="sub-section references" data-en="References" data-de="Referenzen">
+        <h3>References</h3>
+        <p>CSS lecture notes and references go here.</p>
+    </div>
+</section>
+
+<!-- Other Sections (JavaScript, PHP, Web App Security) -->
+<!-- Similar to HTML and CSS, not repeated here for brevity -->
+
+<footer>
+    <p data-en="Solution Navigator © 2025" data-de="Lösungsnavigator © 2025">Solution Navigator © 2025</p>
+</footer>
+
+<script>
+    // Intersection Observer for Animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            } else {
+                entry.target.classList.remove('show');
+            }
+        });
+    });
+
+    document.querySelectorAll('.fade-in').forEach((section) => {
+        observer.observe(section);
+    });
+
+    // Language Switcher
+    const langButtons = document.querySelectorAll('.language-switch button');
+    langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const lang = btn.id;
+            document.querySelectorAll('[data-en]').forEach((el) => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+        });
+    });
+
+    // Subnavbar Active Link
+    document.querySelectorAll('.subnavbar a').forEach((link) => {
+        link.addEventListener('click', () => {
+            document.querySelectorAll('.subnavbar a').forEach((item) => item.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+</script>
 </body>
 </html>
