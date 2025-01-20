@@ -1,0 +1,52 @@
+/* General Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    position: fixed; /* Fixed at the bottom */
+    bottom: 0; /* Always at the bottom */
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Footer Text Styling */
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the links */
+footer a:hover {
+    color: #ffcc00;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem; /* Slightly smaller text for mobile */
+    }
+
+    footer a {
+        font-size: 0.9rem; /* Adjust link size on mobile */
+    }
+}
+
+/* Desktop view */
+@media (min-width: 769px) {
+    footer p {
+        font-size: 1rem;
+    }
+
+    footer a {
+        font-size: 1rem;
+    }
+}

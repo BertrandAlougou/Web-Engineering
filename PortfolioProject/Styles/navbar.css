@@ -1,0 +1,218 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #f9f9f9;
+}
+
+nav.global-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+ul.nav-links li {
+    position: relative;
+}
+
+ul.nav-links a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Hover underline effect */
+ul.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #fff;
+    transition: width 0.3s ease;
+}
+
+ul.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Dropdown Menus */
+ul.nav-links .dropdown-menu,
+ul.nav-links .sub-dropdown {
+    list-style: none;
+    background-color: #444;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    min-width: 200px;
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+ul.nav-links li:hover > .dropdown-menu,
+ul.nav-links .dropdown-menu li:hover > .sub-dropdown {
+    display: block;
+}
+
+ul.nav-links .dropdown-menu li {
+    position: relative;
+}
+
+ul.nav-links .dropdown-menu a,
+ul.nav-links .sub-dropdown a {
+    font-size: 0.9rem; /* Submenu smaller font size */
+    padding: 8px 15px;
+}
+
+ul.nav-links .sub-dropdown {
+    top: 0;
+    left: 100%;
+}
+
+/* Responsive Menu for Mobile */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    ul.nav-links {
+        flex-direction: column;
+        gap: 0;
+        position: fixed;
+        top: 60px;  /* Add space below navbar */
+        left: 0;
+        width: 100%;
+        background: #333;
+        padding: 20px;
+        border-radius: 10px;
+        display: none;
+        z-index: 100;
+    }
+
+    ul.nav-links.show {
+        display: flex;
+    }
+
+    ul.nav-links li {
+        text-align: center;
+    }
+
+    ul.nav-links .dropdown-menu,
+    ul.nav-links .sub-dropdown {
+        position: static;
+        display: none;
+    }
+
+    ul.nav-links li:hover > .dropdown-menu,
+    ul.nav-links .dropdown-menu li:hover > .sub-dropdown {
+        display: block;
+    }
+
+    /* When the menu is toggled, the dropdown is still shown centered */
+    ul.nav-links.show .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);  /* Centered horizontally */
+    }
+
+    /* Ensure sub-dropdown menus follow the same pattern */
+    ul.nav-links.show .sub-dropdown {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);  /* Centered horizontally */
+    }
+
+    /* Fix issue with submenus not showing under software engineering on mobile */
+    ul.nav-links.show .dropdown-menu li:hover > .sub-dropdown {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translateX(0);
+    }
+
+    /* Ensure the submenu visibility works for both "Web Engineering" and "Software Engineering" */
+    ul.nav-links.show .dropdown-menu .dropdown li:hover > .sub-dropdown {
+        display: block;
+    }
+}
+/* Hide submenus by default */
+.nav-links .dropdown-menu {
+    display: none;
+}
+
+/* Show submenus when the "active" class is added */
+.nav-links .dropdown-menu.active {
+    display: block;
+}
+
+/* Optional: Add a smooth transition for the dropdown */
+.nav-links .dropdown-menu {
+    transition: all 0.3s ease;
+}
+
+/* Desktop-specific submenu behavior */
+@media (min-width: 769px) {
+    ul.nav-links .dropdown-menu {
+        display: none;
+    }
+
+    ul.nav-links li:hover > .dropdown-menu {
+        display: block;
+    }
+
+    /* Keep sub-dropdown aligned with the parent menu */
+    ul.nav-links .dropdown-menu li:hover > .sub-dropdown {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 100%;
+    }
+
+    /* Ensure submenu items are smaller in font size */
+    ul.nav-links .dropdown-menu a,
+    ul.nav-links .sub-dropdown a {
+        font-size: 0.9rem; /* Submenu smaller font size */
+        padding: 8px 15px;
+    }
+}
+
+

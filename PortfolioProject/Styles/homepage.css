@@ -1,63 +1,6 @@
-body {
-    font-family: 'Lora', serif;
-    margin: 0;
-    padding: 0;
-    line-height: 1.5;
-}
+/* homepage.css */
 
-.global-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background: #333;
-    color: white;
-}
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
+@import "navbar.css";
+@import "footer.css";
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-.nav-links a:hover {
-    text-decoration: underline;
-}
-
-.dropdown-menu, .sub-dropdown, .project-list {
-    display: none;
-    list-style: none;
-    position: absolute;
-    background: white;
-    border: 1px solid #ddd;
-}
-
-.dropdown:hover > .dropdown-menu {
-    display: block;
-}
-
-.dropdown-menu li {
-    padding: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #333;
-    color: white;
-}
-
-footer a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
