@@ -1,0 +1,314 @@
+/* main.css */
+
+/* Define CSS Variables for better maintainability */
+:root {
+    --primary-color: #333; /* Default: Dark Gray */
+    --secondary-color: #fff; /* Default: White */
+    --accent-color: #FFD700; /* Default: Gold */
+    --background-color: #f9f9f9; /* Default: Light Gray */
+    --text-color: #333; /* Default: Dark Gray */
+}
+
+/* Dark Mode */
+.dark-mode {
+    --primary-color: #2b2b2b; /* Dark Gray */
+    --secondary-color: #f4f4f4; /* Light Gray */
+    --background-color: #1a1a1a; /* Dark Gray */
+    --text-color: #f4f4f4; /* Light Gray */
+}
+
+/* Light Mode */
+.light-mode {
+    --primary-color: #fff; /* White */
+    --secondary-color: #333; /* Dark Gray */
+    --background-color: #f9f9f9; /* Light Gray */
+    --text-color: #333; /* Dark Gray */
+}
+
+/* Global Styles */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Lora', serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar Styles */
+nav.global-nav {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* Dropdown Styles */
+.nav-links .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    min-width: 150px;
+}
+
+.nav-links .dropdown-menu li {
+    margin: 0;
+}
+
+.nav-links .dropdown-menu a {
+    display: block;
+    padding: 8px 15px;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-links .dropdown-menu a:hover {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+/* Show dropdown on hover */
+.nav-links li:hover > .dropdown-menu {
+    display: block;
+}
+
+/* High Contrast Mode */
+.high-contrast {
+    background-color: #000;
+    color: #fff;
+}
+
+.high-contrast a {
+    color: var(--accent-color);
+}
+
+.high-contrast .cta-button {
+    background-color: var(--accent-color);
+    color: #000;
+}
+
+/* Large Text Mode */
+.large-text {
+    font-size: 1.25rem; /* Adjust as needed */
+}
+
+/* Accessibility Button Styling */
+.accessibility-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Button Colors */
+.accessibility-btn.light-mode {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+.accessibility-btn.dark-mode {
+    background: #f5f5f5;
+    color: #121212;
+}
+
+.accessibility-btn.high-contrast {
+    background: #ff0000;
+    color: #ffffff;
+}
+
+/* Hover Effect */
+.accessibility-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgb(15, 22, 41);
+}
+
+/* Accessibility Options Styling */
+.accessibility-options {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    background: rgba(51, 51, 51, 0.9);
+    color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease;
+}
+
+.accessibility-options ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.accessibility-options li {
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+}
+
+.accessibility-options li:hover {
+    color: gold;
+    transform: scale(1.1);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+    --primary-color: #2b2b2b; /* Dark Gray */
+    --secondary-color: #f4f4f4; /* Light Gray */
+    --background-color: #1a1a1a; /* Dark Gray */
+    --text-color: #f4f4f4; /* Light Gray */
+}
+
+/* Light Mode Styles */
+.light-mode {
+    --primary-color: #fff; /* White */
+    --secondary-color: #333; /* Dark Gray */
+    --background-color: #f9f9f9; /* Light Gray */
+    --text-color: #333; /* Dark Gray */
+}
+
+/* Apply background color to the body */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.dark-mode .cta-button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+}
+
+.light-mode .cta-button {
+    background-color: #007BFF; /* Blue for Light Mode */
+    color: #fff;
+}
+
+.dark-mode footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+.light-mode footer {
+    background-color: #333; /* Dark Gray for Light Mode */
+    color: #fff;
+}
+
+.dark-mode .social-links a {
+    color: var(--secondary-color);
+}
+
+.light-mode .social-links a {
+    color: #fff;
+}
+
+.large-text {
+    font-size: 1.2em;
+}
+
+/* Logo Styling */
+.logo {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+/* Prevent hover effect on the logo */
+.logo:hover {
+    text-decoration: none;
+    color: inherit;
+    cursor: default;
+}
+
+/* Footer Link Hover Effect */
+footer .social-links a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+footer .social-links a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    /* Adjust font sizes for smaller screens */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Adjust padding and margins for smaller screens */
+    .hero {
+        padding: 30px;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+}
+
+/* Homepage-Specific Styles */
+.hero {
+    background-color: var(--background-color); /* Use CSS variable for better consistency */
+}

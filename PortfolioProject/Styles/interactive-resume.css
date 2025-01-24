@@ -7,50 +7,56 @@
 
 body {
     font-family: 'Lora', serif;
-    background-color: #f9f9f9;
+    background-color: #f0f0f0; /* Light Gray Background */
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-
 .container {
-    padding: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 .section {
-    margin-bottom: 20px;
-    background-color: #fff;
+    margin-bottom: 3rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 2rem;
+    background-color: #fff; /* White background for sections */
 }
 
 .section h2 {
     margin-top: 0;
+    color: #007bff; /* Blue headings */
 }
 
 /* profile section */
 .profile-section {
     display: flex;
     align-items: center;
-    padding: 20px;
-    background-color: #fff;
+    background-color: #f0f0f0; /* Light Gray background */
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 3rem;
+    padding: 2rem;
 }
 
 .profile-container {
     display: flex;
     align-items: flex-start;
-    gap: 20px;
+    gap: 2rem;
 }
 
 .profile-image {
-    flex: 0 0 160px;
-    height: 240px;
+    flex: 0 0 150px;
+    height: 180px;
     border-radius: 50%;
     overflow: hidden;
-    border: 3px solid #444;
-    background-color: #f9f9f9;
+    border: 2px solid #007bff; /* Blue border */
+    background-color: #fff;
 }
 
 .profile-image img {
@@ -64,9 +70,9 @@ body {
 }
 
 .profile-text h2 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #007bff; /* Blue heading */
 }
 
 .profile-text p {
@@ -74,40 +80,40 @@ body {
     color: #555;
 }
 
-
 .skills-section {
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 }
 
 .skills-category {
-    margin-bottom: 20px;
-    padding: 15px;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
-    background-color: #444;
-    color: #fff;
+    background-color: #f0f0f0; /* Light Gray background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
 .skills-category:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #555;
+    background-color: #f8f8f8; /* Slightly lighter background on hover */
 }
 
 .skill {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 .skill-name {
     font-weight: bold;
+    color: #007bff; /* Blue skill names */
 }
 
 .progress-bar {
-    background-color: #666;
+    background-color: #eee;
     border-radius: 25px;
     overflow: hidden;
     position: relative;
-    height: 20px;
+    height: 15px;
 }
 
 .progress-bar-fill {
@@ -119,24 +125,24 @@ body {
 }
 
 .languages-section ul li {
-    margin: 10px 0;
-    padding: 10px;
+    margin: 1rem 0;
+    padding: 1rem 1.5rem;
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
-    background-color: #444;
-    color: #fff;
+    background-color: #f0f0f0; /* Light Gray background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
 }
 
 .languages-section ul li:hover {
     transform: scale(1.02);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #555;
+    background-color: #f8f8f8; /* Slightly lighter background on hover */
 }
 
 button#downloadCV {
-    background-color: #333;
+    background-color: #007bff; /* Blue button */
     color: white;
-    padding: 10px 20px;
+    padding: 1rem 2rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -144,5 +150,21 @@ button#downloadCV {
 }
 
 button#downloadCV:hover {
-    background-color: #444;
+    background-color: #0066cc;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image {
+        margin-bottom: 1rem;
+    }
 }
