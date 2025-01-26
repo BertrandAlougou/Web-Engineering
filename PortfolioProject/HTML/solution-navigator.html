@@ -4,159 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solution Navigator</title>
-    <link rel="stylesheet" href="styles/solution-navigator.css">
-    <style>
-        /* Basic Styling */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
-
-        /* Top Navbar */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #333;
-            color: white;
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-
-        header .nav-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        header a {
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
-        }
-
-        header a:hover {
-            color: #00bcd4;
-        }
-
-        .language-switch {
-            display: flex;
-            gap: 10px;
-        }
-
-        .language-switch button {
-            padding: 5px 10px;
-            border: none;
-            background-color: #00bcd4;
-            color: white;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-        .language-switch button:hover {
-            background-color: #0288d1;
-        }
-
-        /* Subnavbar */
-        .subnavbar {
-            position: sticky;
-            top: 50px; /* Adjust to match header height */
-            background-color: #f4f4f4;
-            z-index: 999;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .subnavbar ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 10px 0;
-            margin: 0;
-            gap: 20px;
-        }
-
-        .subnavbar li {
-            padding: 10px;
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-        }
-
-        .subnavbar li:hover {
-            background-color: #e0e0e0;
-        }
-
-        .subnavbar a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .subnavbar a.active {
-            font-weight: bold;
-            color: #00bcd4;
-        }
-
-        /* Section Styling */
-        .section {
-            min-height: 100vh;
-            padding: 120px 20px; /* Adjust padding for navbar overlap */
-        }
-
-        .section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .sub-section {
-            padding: 20px;
-            margin: 10px auto;
-            max-width: 900px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .exercises {
-            background-color: #e7f4ff;
-        }
-
-        .solutions {
-            background-color: #f9f1e6;
-        }
-
-        .references {
-            background-color: #fff8e1;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #333;
-            color: white;
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+    <link rel="stylesheet" href="../Styles/main.css">
+    <link rel="stylesheet" href="../Styles/solution-navigator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<!-- Top Navbar -->
+
 <header>
     <div class="nav-links">
-        <a href="#home">Solution Navigator</a>
+        <a href="#home" data-en="Solution Navigator" data-de="Lösungsnavigator">Solution Navigator</a>
     </div>
     <div class="language-switch">
         <button id="english">English</button>
@@ -164,100 +20,173 @@
     </div>
 </header>
 
-<!-- Subnavbar -->
 <div class="subnavbar">
     <ul>
-        <li><a href="#html" class="active">HTML</a></li>
-        <li><a href="#css">CSS</a></li>
-        <li><a href="#javascript">JavaScript</a></li>
-        <li><a href="#php">PHP</a></li>
-        <li><a href="#security">Web App Security</a></li>
+        <li><a href="#html" class="active" data-en="HTML" data-de="HTML">HTML</a></li>
+        <li><a href="#css" data-en="CSS" data-de="CSS">CSS</a></li>
+        <li><a href="#javascript" data-en="JavaScript" data-de="JavaScript">JavaScript</a></li>
+        <li><a href="#php" data-en="PHP" data-de="PHP">PHP</a></li>
+        <li><a href="#security" data-en="Web App Security" data-de="Web-App Sicherheit">Web App Security</a></li>
     </ul>
 </div>
 
-<!-- Sections -->
-<section id="home" class="section fade-in">
-    <h2 data-en="Solution Navigator" data-de="Lösungsnavigator">Solution Navigator</h2>
-    <p data-en="Welcome to the Solution Navigator!" data-de="Willkommen im Lösungsnavigator!">
-        Welcome to the Solution Navigator!
-    </p>
-</section>
+<main>
+    <section id="home" class="section fade-in">
+        <h2 data-en="Solution Navigator" data-de="Lösungsnavigator">Solution Navigator</h2>
+        <p data-en="Welcome to the Solution Navigator!" data-de="Willkommen im Lösungsnavigator!">
+            Welcome to the Solution Navigator!
+        </p>
+        <div class="scroll-down">
+            <a href="#html"><i class="fas fa-angle-down"></i></a>
+        </div>
+    </section>
 
-<!-- HTML Section -->
-<section id="html" class="section fade-in">
-    <h2 data-en="HTML" data-de="HTML">HTML</h2>
-    <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
-        <h3>Exercises</h3>
-        <p>Exercise details for HTML go here.</p>
+    <section id="html" class="section fade-in">
+        <h2 data-en="HTML" data-de="HTML">HTML</h2>
+        <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+            <h3><span data-en="Exercises" data-de="Übungen">Exercises</span></h3>
+            <div class="exercise-container">
+                <div class="exercise-image">
+                    <img src="images/exercises/ex2.4.png" alt="Exercise 1: Create a simple HTML table.">
+                </div>
+                <button class="show-exercise-btn" data-en="Show Exercise" data-de="Übung anzeigen">Show Exercise</button>
+            </div>
+        </div>
+        <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+            <h3><span data-en="Solutions" data-de="Lösungen">Solutions</span></h3>
+            <div class="solution-container">
+                <div class="exercise-image">
+                    <img src="images/html_exercise1.png" alt="Exercise 1: Create a simple HTML table.">
+                </div>
+                <div class="solution-link">
+                    <a href="html_solution1.html" target="_blank" data-en="View Full Solution" data-de="Vollständige Lösung anzeigen">View Full Solution</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-section references" data-en="References" data-de="Referenzen">
+            <h3><span data-en="References" data-de="Referenzen">References</span></h3>
+            <p data-en="HTML Tutorial on w3schools" data-de="HTML Tutorial auf w3schools">HTML Tutorial on w3schools</p>
+        </div>
+    </section>
+
+    <section id="css" class="section fade-in">
+        <h2 data-en="CSS" data-de="CSS">CSS</h2>
+        <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+            <h3><span data-en="Exercises" data-de="Übungen">Exercises</span></h3>
+            <div class="exercise-container">
+                <div class="exercise-image">
+                    <img src="images/css_exercise1.png" alt="Exercise 1: Style a div element with CSS.">
+                </div>
+                <button class="show-exercise-btn" data-en="Show Exercise" data-de="Übung anzeigen">Show Exercise</button>
+            </div>
+        </div>
+        <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+            <h3><span data-en="Solutions" data-de="Lösungen">Solutions</span></h3>
+            <div class="solution-container">
+                <div class="exercise-image">
+                    <img src="images/css_exercise1.png" alt="Exercise 1: Style a div element with CSS.">
+                </div>
+                <div class="solution-link">
+                    <a href="css_solution1.html" target="_blank" data-en="View Full Solution" data-de="Vollständige Lösung anzeigen">View Full Solution</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-section references" data-en="References" data-de="Referenzen">
+            <h3><span data-en="References" data-de="Referenzen">References</span></h3>
+            <p data-en="CSS Tutorial on MDN" data-de="CSS Tutorial auf MDN">CSS Tutorial on MDN</p>
+        </div>
+    </section>
+
+    <section id="javascript" class="section fade-in">
+        <h2 data-en="JavaScript" data-de="JavaScript">JavaScript</h2>
+        <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+            <h3><span data-en="Exercises" data-de="Übungen">Exercises</span></h3>
+            <div class="exercise-container">
+                <div class="exercise-image">
+                    <img src="images/javascript_exercise1.png" alt="Exercise 1: JavaScript Exercise">
+                </div>
+                <button class="show-exercise-btn" data-en="Show Exercise" data-de="Übung anzeigen">Show Exercise</button>
+            </div>
+        </div>
+        <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+            <h3><span data-en="Solutions" data-de="Lösungen">Solutions</span></h3>
+            <div class="solution-container">
+                <div class="exercise-image">
+                    <img src="images/javascript_exercise1.png" alt="Exercise 1: JavaScript Exercise">
+                </div>
+                <div class="solution-link">
+                    <a href="javascript_solution1.html" target="_blank" data-en="View Full Solution" data-de="Vollständige Lösung anzeigen">View Full Solution</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-section references" data-en="References" data-de="Referenzen">
+            <h3><span data-en="References" data-de="Referenzen">References</span></h3>
+            <p data-en="JavaScript Tutorial on MDN" data-de="JavaScript Tutorial auf MDN">JavaScript Tutorial on MDN</p>
+        </div>
+    </section>
+
+    <section id="php" class="section fade-in">
+        <h2 data-en="PHP" data-de="PHP">PHP</h2>
+        <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+            <h3><span data-en="Exercises" data-de="Übungen">Exercises</span></h3>
+            <div class="exercise-container">
+                <div class="exercise-image">
+                    <img src="images/php_exercise1.png" alt="Exercise 1: PHP Exercise">
+                </div>
+                <button class="show-exercise-btn" data-en="Show Exercise" data-de="Übung anzeigen">Show Exercise</button>
+            </div>
+        </div>
+        <div class="sub-section solutions" data-en="Lösungen">
+            <h3><span data-en="Solutions" data-de="Lösungen">Solutions</span></h3>
+            <div class="solution-container">
+                <div class="exercise-image">
+                    <img src="images/php_exercise1.png" alt="Exercise 1: PHP Exercise">
+                </div>
+                <div class="solution-link">
+                    <a href="php_solution1.html" target="_blank" data-en="View Full Solution" data-de="Vollständige Lösung anzeigen">View Full Solution</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-section references" data-en="References" data-de="Referenzen">
+            <h3><span data-en="References" data-de="Referenzen">References</span></h3>
+            <p data-en="PHP Tutorial on w3schools" data-de="PHP Tutorial auf w3schools">PHP Tutorial on w3schools</p>
+        </div>
+    </section>
+
+    <section id="security" class="section fade-in">
+        <h2 data-en="Web App Security" data-de="Web-App Sicherheit">Web App Security</h2>
+        <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
+            <h3><span data-en="Exercises" data-de="Übungen">Exercises</span></h3>
+            <div class="exercise-container">
+                <div class="exercise-image">
+                    <img src="images/security_exercise1.png" alt="Exercise 1: Web App Security Exercise">
+                </div>
+                <button class="show-exercise-btn" data-en="Show Exercise" data-de="Übung anzeigen">Show Exercise</button>
+            </div>
+        </div>
+        <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
+            <h3><span data-en="Solutions" data-de="Lösungen">Solutions</span></h3>
+            <div class="solution-container">
+                <div class="exercise-image">
+                    <img src="images/security_exercise1.png" alt="Exercise 1: Web App Security Exercise">
+                </div>
+                <div class="solution-link">
+                    <a href="security_solution1.html" target="_blank" data-en="View Full Solution" data-de="Vollständige Lösung anzeigen">View Full Solution</a>
+                </div>
+            </div>
+        </div>
+        <div class="sub-section references" data-en="References" data-de="Referenzen">
+            <h3><span data-en="References" data-de="Referenzen">References</span></h3>
+            <p data-en="OWASP Cheat Sheet Series" data-de="OWASP Cheat Sheet Serie">OWASP Cheat Sheet Series</p>
+        </div>
+    </section>
+
+    <div class="scroll-up">
+        <a href="#home"><i class="fas fa-angle-up"></i></a>
     </div>
-    <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
-        <h3>Solutions</h3>
-        <p>Solutions to HTML exercises go here.</p>
-    </div>
-    <div class="sub-section references" data-en="References" data-de="Referenzen">
-        <h3>References</h3>
-        <p>HTML lecture notes and references go here.</p>
-    </div>
-</section>
 
-<!-- CSS Section -->
-<section id="css" class="section fade-in">
-    <h2 data-en="CSS" data-de="CSS">CSS</h2>
-    <div class="sub-section exercises" data-en="Exercises" data-de="Übungen">
-        <h3>Exercises</h3>
-        <p>Exercise details for CSS go here.</p>
-    </div>
-    <div class="sub-section solutions" data-en="Solutions" data-de="Lösungen">
-        <h3>Solutions</h3>
-        <p>Solutions to CSS exercises go here.</p>
-    </div>
-    <div class="sub-section references" data-en="References" data-de="Referenzen">
-        <h3>References</h3>
-        <p>CSS lecture notes and references go here.</p>
-    </div>
-</section>
+</main>
 
-<!-- Other Sections (JavaScript, PHP, Web App Security) -->
-<!-- Similar to HTML and CSS, not repeated here for brevity -->
-
-<footer>
-    <p data-en="Solution Navigator © 2025" data-de="Lösungsnavigator © 2025">Solution Navigator © 2025</p>
-</footer>
-
-<script>
-    // Intersection Observer for Animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            } else {
-                entry.target.classList.remove('show');
-            }
-        });
-    });
-
-    document.querySelectorAll('.fade-in').forEach((section) => {
-        observer.observe(section);
-    });
-
-    // Language Switcher
-    const langButtons = document.querySelectorAll('.language-switch button');
-    langButtons.forEach((btn) => {
-        btn.addEventListener('click', () => {
-            const lang = btn.id;
-            document.querySelectorAll('[data-en]').forEach((el) => {
-                el.textContent = el.getAttribute(`data-${lang}`);
-            });
-        });
-    });
-
-    // Subnavbar Active Link
-    document.querySelectorAll('.subnavbar a').forEach((link) => {
-        link.addEventListener('click', () => {
-            document.querySelectorAll('.subnavbar a').forEach((item) => item.classList.remove('active'));
-            link.classList.add('active');
-        });
-    });
-</script>
 </body>
+<script src="../JavaScript/solution-navigator.js"></script>
 </html>

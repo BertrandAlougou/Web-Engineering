@@ -1,0 +1,247 @@
+
+
+/* Basic Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+                            }
+
+/* Top Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+header .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header a:hover {
+    color: #00bcd4;
+}
+
+.language-switch {
+    display: flex;
+    gap: 10px;
+}
+
+.language-switch button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #00bcd4;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.language-switch button:hover {
+    background-color: #0288d1;
+}
+
+/* Subnavbar */
+.subnavbar {
+    position: sticky;
+    top: 50px; /* Adjust to match header height */
+    background-color: #f4f4f4;
+    z-index: 999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.subnavbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 0;
+    gap: 20px;
+}
+
+.subnavbar li {
+    padding: 10px;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+.subnavbar li:hover {
+    background-color: #e0e0e0;
+    cursor: pointer; /* Indicate interactivity */
+}
+
+.subnavbar a {
+    text-decoration: none;
+    color: #333;
+}
+
+.subnavbar a:hover {
+    color: #00bcd4; /* Change color on hover */
+    cursor: pointer;
+}
+
+.subnavbar a.active {
+    font-weight: bold;
+    color: #00bcd4;
+}
+
+/* Section Styling */
+.section {
+    min-height: 100vh;
+    padding: 120px 20px; /* Adjust padding for navbar overlap */
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sub-section {
+    padding: 20px;
+    margin: 10px auto;
+    max-width: 900px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.exercises {
+    background-color: #e7f4ff;
+}
+
+.solutions {
+    background-color: #f9f1e6;
+}
+
+.references {
+    background-color: #fff8e1;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+/* Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hover Effects */
+.subnavbar li:hover {
+    background-color: #e0e0e0;
+    cursor: pointer; /* Indicate interactivity */
+}
+
+.subnavbar a:hover {
+    color: #00bcd4; /* Change color on hover */
+    cursor: pointer;
+}
+
+/* Scroll Down Arrow */
+.scroll-down {
+    text-align: center;
+    margin-top: 50px;
+    animation: vibrate 1s ease infinite;
+}
+
+.scroll-down a {
+    color: #00bcd4;
+    font-size: 24px;
+}
+
+@keyframes vibrate {
+    0% { transform: translateY(0); }
+    20% { transform: translateY(-5px); }
+    40% { transform: translateY(0); }
+    60% { transform: translateY(5px); }
+    80% { transform: translateY(0); }
+    100% { transform: translateY(0); }
+}
+
+/* Scroll Up Arrow */
+.scroll-up {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.show-scroll-up {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Exercise Container Styling */
+.exercise-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.exercise-image {
+    margin-right: 20px;
+}
+
+.show-exercise-btn, .hide-exercise-btn {
+    background-color: #00bcd4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hide-exercise-btn {
+    background-color: #ff5722; /* Example: Red color for "Hide" button */
+}
+
+/* Solution Container Styling */
+.solution-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.solution-code {
+    margin-left: 20px;
+}
+
+.show-exercise {
+    display: none;
+}
+
+.result {
+    margin-top: 10px;
+    color: #009688; /* Example: Green color for result */
+}
+
+.solution-link {
+    margin-top: 10px;
+}
