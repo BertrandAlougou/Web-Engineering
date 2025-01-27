@@ -1,5 +1,6 @@
-// Form validation feedback
 document.querySelector('form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent default submission behavior
+
     const form = event.target;
     const name = form.querySelector('#name');
     const email = form.querySelector('#email');
@@ -25,8 +26,29 @@ document.querySelector('form').addEventListener('submit', function (event) {
         isValid = false;
     }
 
-    if (!isValid) {
-        event.preventDefault();
+    if (isValid) {
+        // Proceed with the form submission
+        const formData = new FormData(form);
+
+        fetch('process_contact.php', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(data => {
+                alert(data); // Display server response
+                form.reset(); // Optionally reset the form
+            })
+            .catch(error => {
+                console.error('There has been a problem with your fetch operation:', error);
+                alert('An error occurred. Please try again later.');
+            });
+    } else {
         alert('Please fill out all fields correctly before submitting.');
     }
 });
