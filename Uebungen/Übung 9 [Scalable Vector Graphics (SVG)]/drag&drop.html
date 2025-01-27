@@ -1,0 +1,58 @@
+<!doctype html>
+<style>
+.static {
+cursor: not-allowed;
+}
+.draggable {
+cursor: move;
+}
+</style>
+<svg viewBox="0 0 250 150">
+<circle cx="135" cy="50" r="30" fill="yellow" class="draggable"></circle>
+<circle cx="20" cy="100" r="20" fill="red" class="draggable"></circle>
+<rect x="200" y="100" width="50" height="50" fill="blue"
+class="static"></rect>
+</svg>
+<script>
+for ( const draggable of document.querySelectorAll('.draggable') ){
+makeDraggable( draggable );
+}
+
+function makeDraggable( elem ) {
+elem.addEventListener('mousedown', startDrag);
+elem.addEventListener('mousemove', drag);
+elem.addEventListener('mouseup', endDrag);
+elem.addEventListener('mouseleave', endDrag);
+let selectedElement, offset;
+
+function startDrag(evt) {
+if (evt.target.classList.contains('draggable')) {
+selectedElement = evt.target;
+offset = getMousePosition(evt);
+offset.x -= parseFloat(selectedElement.getAttribute("cx"));
+offset.y -= parseFloat(selectedElement.getAttribute("cy"));
+}
+}
+
+function drag(evt) {
+if (selectedElement) {
+evt.preventDefault();
+var coord = getMousePosition(evt);
+selectedElement.setAttribute("cx", coord.x - offset.x);
+selectedElement.setAttribute("cy", coord.y - offset.y);
+}
+}
+
+function endDrag(evt) {
+selectedElement = null;
+}
+
+function getMousePosition(evt) {
+const CTM = document.querySelector('svg').getScreenCTM();
+return {
+x: (evt.clientX - CTM.e) / CTM.a,
+y: (evt.clientY - CTM.f) / CTM.d
+};
+}
+
+}

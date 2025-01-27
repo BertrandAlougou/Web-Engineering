@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #chart-container {
+      width: 600px;
+      margin: 20px auto;
+    }
+
+    .bar {
+      fill: #4CAF50; /* Grüne Füllfarbe der Balken */
+      transition: height 0.5s ease-out; /* Animationsübergang für die Balken */
+    }
+
+    .text-label {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      fill: #333;
+      text-anchor: middle;
+    }
+  </style>
+</head>
+<body>
+
+<div id="chart-container">
+  <!-- SVG-Container für das Balkendiagramm -->
+  <svg id="bar-chart" width="600" height="400" xmlns="http://www.w3.org/2000/svg"></svg>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Daten aus der JSON-Datei laden
+    fetch('markt.json')
+      .then(response => response.json())
+      .then(data => drawBarChart(data));
+  });
+
+  function drawBarChart(data) {
+    const svg = document.getElementById('bar-chart');
+    const chartContainer = document.getElementById('chart-container');
+
+    // Maximalen Wert für die Skalierung finden
+    const maxValue = Math.max(...data.map(entry => entry.value));
+
+    // Balken zeichnen
+    data.forEach((entry, index) => {
+      const barHeight = (entry.value / maxValue) * 300; // Skalierung der Balkenhöhe
+      const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+      bar.setAttribute('class', 'bar');
+      bar.setAttribute('x', index * 120);
+      bar.setAttribute('y', 400 - barHeight);
+      bar.setAttribute('width', 100);
+      bar.setAttribute('height', barHeight);
+      bar.addEventListener('mouseover', () => animateBar(bar, barHeight + 10));
+      bar.addEventListener('mouseout', () => animateBar(bar, barHeight));
+
+      // Textlabel hinzufügen
+      const textLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      textLabel.setAttribute('class', 'text-label');
+      textLabel.setAttribute('x', index * 120 + 50);
+      textLabel.setAttribute('y', 420);
+      textLabel.textContent = entry.label;
+
+      // Balken und Text zum SVG-Container hinzufügen
+      svg.appendChild(bar);
+      svg.appendChild(textLabel);
+    });
+  }
+
+  function animateBar(bar, newHeight) {
+    bar.setAttribute('height', newHeight);
+  }
+</script>
+
+</body>
+</html>

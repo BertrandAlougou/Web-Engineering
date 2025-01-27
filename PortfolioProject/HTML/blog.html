@@ -3,25 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Blog</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Styles/blog.css">
+    <link rel="stylesheet" href="../Styles/page.css">
+    <link rel="stylesheet" href="../Styles/main.css">
+
 </head>
 <body>
+<!-- Top Navbar -->
+<nav class="global-nav">
+    <a href="../index.html" class="logo">Bertrand Alougou</a>
+    <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about.html">About</a>
+            <ul class="dropdown-menu">
+                <li><a href="interactive-resume.html">Interactive Résumé</a></li>
+            </ul>
+        </li>
+        <li><a href="portfolio.html">Portfolio</a>
+            <ul class="dropdown-menu">
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="se.html">Software Engineering</a></li>
+                <li class="dropdown">
+                    <a href="we.html">Web Engineering</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="solution-navigator.html">Solution Navigator</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-<!-- Include Navbar -->
-<div id="navbar-container"></div>
-
-<!-- Page Content -->
-<div id="content">
-    <h1>Welcome to My Portfolio</h1>
-    <p>This is the homepage.</p>
+<div class="accessibility-btn light-mode" tabindex="0" aria-label="Toggle Accessibility Options">
+    <img src="../Images/icons/accessibility-icon.png" alt="Accessibility">
 </div>
 
-<!-- Include Footer -->
-<div id="footer-container"></div>
+<main>
+    <h1 class="page-title">Blog</h1>
+    <section class="blog-container">
+        <div class="blog-card">
+            <div class="blog-icon">➔</div>
+            <div class="blog-content">
+                <h2>Topic 1</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="blog-icon">➔</div>
+            <div class="blog-content">
+                <h2>Topic 2</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+            </div>
+        </div>
+        <div class="blog-card">
+            <div class="blog-icon">➔</div>
+            <div class="blog-content">
+                <h2>Topic 3</h2>
+                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. At purus tellus arcu sit nibh consectetur.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- Include JavaScript Loading page components -->
-<script src="../JavaScript/page.js"></script>
+    <!-- Section to show topic details -->
+    <section class="topic-content">
+        <button class="close-topic">X</button>
+        <h2 class="topic-title"></h2>
+        <p class="topic-description"></p>
+    </section>
+</main>
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="https://www.xing.com/profile/JeanBertrand_AlougouNgasse" target="_blank" rel="noopener noreferrer">Xing</a></li>
+            <li><a href="https://www.linkedin.com/in/jean-bertrand-alougou-ngasse/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/BertrandAlougou" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+    </div>
+</footer>
+<script src="../JavaScript/blog.js"></script>
+<script src="../JavaScript/main.js"></script>
 </body>
 </html>

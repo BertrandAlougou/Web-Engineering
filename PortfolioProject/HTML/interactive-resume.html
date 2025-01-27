@@ -3,77 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Résumé</title>
-
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Styles/interactive-resume.css">
+    <link rel="stylesheet" href="../Styles/page.css">
+    <link rel="stylesheet" href="../Styles/main.css">
 </head>
 <body>
-<div class="container">
-    <div class="section profile-section">
-        <div class="profile-container">
-            <div class="profile-image">
-                <img src="../Images/My%20pictures/img-5.jpg" alt="Profile Picture">
-            </div>
-            <div class="profile-text">
-                <h2>Profile</h2>
-                <p>
-                    I am a computer science student in my Bachelors with hands-on experience in agile software development and IT administration. My professional experience includes contributions to organizations such as the German Bundestag and IfM Bonn. I excel in Java, Python, and web technologies, complemented by fluency in French, English, and German.
-                </p>
-            </div>
-        </div>
-    </div>
 
-    <div class="section skills-section">
-        <h2>My Skills</h2>
-        <div class="skills-category">
-            <h3>Soft Skills</h3>
-            <div class="skill">
-                <div class="skill-name">Communication</div>
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 85%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">Teamwork</div>
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 90%;"></div>
-                </div>
-            </div>
-        </div>
+<nav class="global-nav">
+    <a href="../index.html" class="logo">Bertrand Alougou</a>
+    <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">☰</button>
+    <ul class="nav-links">
+        <li><a href="homepage.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <ul class="dropdown-menu">
+            <li><a href="interactive-resume.html" class="active">Interactive Résumé</a></li>
+        </ul>
+        <li><a href="portfolio.html">Portfolio</a>
+            <ul class="dropdown-menu">
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="se.html">Software Engineering</a></li>
+                <li><a href="we.html">Web Engineering</a></li>
+            </ul>
+        </li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
 
-        <div class="skills-category">
-            <h3>Management Skills</h3>
-            <div class="skill">
-                <div class="skill-name">Agile Project Management</div>
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 80%;"></div>
-                </div>
-            </div>
-            <div class="skill">
-                <div class="skill-name">IT Administration</div>
-                <div class="progress-bar">
-                    <div class="progress-bar-fill" style="width: 75%;"></div>
-                </div>
-            </div>
-        </div>
+<div class="accessibility-btn light-mode" tabindex="0" aria-label="Toggle Accessibility Options">
+    <img src="../Images/icons/accessibility-icon.png" alt="Accessibility">
+</div>
 
-        <div class="skills-category">
-            <h3>Technical Skills</h3>
+<main>
 
-            <div class="skills-category">
-                <h4>SAP Skills</h4>
-                <div class="skill">
-                    <div class="skill-name">SAP Modules</div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 60%;"></div>
+    <section class="resume-section">
+        <h2>Résumé</h2>
+        <div class="container">
+            <div class="profile-section">
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <img src="../Images/My%20pictures/img-1.JPG" alt="Profile Picture">
+                    </div>
+                    <div class="profile-text">
+                        <h2>Bertrand Alougou</h2>
+                        <p>
+                            Highly motivated and results-oriented computer science student with hands-on experience in agile software development and IT administration. Proven ability to thrive in fast-paced, collaborative environments. Demonstrated strong communication and problem-solving skills through successful contributions to projects at organizations like the German Bundestag and IfM Bonn. Possess a solid foundation in Java, Python, JavaScript, and web technologies, along with a keen interest in exploring emerging technologies. Eager to leverage my technical expertise and enthusiasm for innovation to contribute to impactful software solutions.
+                        </p>
                     </div>
                 </div>
             </div>
 
-            <div class="skills-category">
-                <h4>Web Development Skills</h4>
+            <div class="section skills-section">
+                <h2>Key Skills</h2>
                 <div class="skills-category">
-                    <h5>Front-End</h5>
+                    <h3>Programming Languages</h3>
+                    <div class="skill">
+                        <div class="skill-name">Java</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Python</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">JavaScript</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">C</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Web Development</h3>
                     <div class="skill">
                         <div class="skill-name">HTML, CSS</div>
                         <div class="progress-bar">
@@ -81,86 +95,108 @@
                         </div>
                     </div>
                     <div class="skill">
-                        <div class="skill-name">JavaScript</div>
+                        <div class="skill-name">JavaScript Frameworks (e.g., React, Angular)</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 60%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Databases</h3>
+                    <div class="skill">
+                        <div class="skill-name">SQL</div>
                         <div class="progress-bar">
                             <div class="progress-bar-fill" style="width: 70%;"></div>
                         </div>
                     </div>
+                    <div class="skill">
+                        <div class="skill-name">PostgreSQL</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 65%;"></div>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="skills-category">
-                    <h5>Back-End</h5>
+                    <h3>Tools & Technologies</h3>
                     <div class="skill">
-                        <div class="skill-name">Node.js</div>
+                        <div class="skill-name">Git</div>
                         <div class="progress-bar">
-                            <div class="progress-bar-fill" style="width: 50%;"></div>
+                            <div class="progress-bar-fill" style="width: 90%;"></div>
                         </div>
                     </div>
                     <div class="skill">
-                        <div class="skill-name">Express.js</div>
+                        <div class="skill-name">Docker</div>
                         <div class="progress-bar">
-                            <div class="progress-bar-fill" style="width: 40%;"></div>
+                            <div class="progress-bar-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="skill-name">Agile Methodologies (Scrum, Kanban)</div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-fill" style="width: 85%;"></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="skills-category">
-                <h4>Software Development Skills</h4>
-                <div class="skill">
-                    <div class="skill-name">Java</div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 90%;"></div>
-                    </div>
+            <div class="section work-experience-section">
+                <h2>Work Experience</h2>
+                <div class="work-experience">
+                    <h3>Software Engineer Trainee | CGI Deutschland B.V. & Co. KG | Cologne | August 2023 - July 2024</h3>
+                    <ul>
+                        <li>Contributed to the development and maintenance of a critical business application using Java and Spring Boot.</li>
+                        <li>Participated in all phases of the software development lifecycle, from requirements gathering and design to testing and deployment.</li>
+                        <li>Collaborated effectively with cross-functional teams, including developers, testers, and product owners.</li>
+                        <li>Demonstrated strong problem-solving and analytical skills in identifying and resolving technical challenges.</li>
+                        <li>Gained practical experience in Agile methodologies, including Scrum and Kanban.</li>
+                    </ul>
                 </div>
-                <div class="skill">
-                    <div class="skill-name">Python</div>
-                    <div class="progress-bar">
-                        <div class="progress-bar-fill" style="width: 85%;"></div>
-                    </div>
+                <div class="work-experience">
+                    <h3>IT Assistant | Institut für Mittelstandsforschung (IfM) | Bonn | March 2022 - October 2023</h3>
+                    <ul>
+                        <li>Managed and maintained the institute's digital newsletter, ensuring timely publication and accurate content delivery.</li>
+                        <li>Provided first-line technical support to staff, resolving hardware and software issues efficiently.</li>
+                        <li>Maintained and updated network infrastructure, including workstations, servers, and peripherals.</li>
+                        <li>Assisted in the administration of customer databases for research projects, ensuring data accuracy and integrity.</li>
+                        <li>Developed and implemented basic scripts to automate routine tasks.</li>
+                    </ul>
                 </div>
             </div>
 
+            <div class="section education-section">
+                <h2>Education</h2>
+                <div class="education">
+                    <h3>Bachelor of Science in Computer Science | University of Applied Sciences Bonn-Rhein-Sieg | Sankt Augustin, Germany | Expected Graduation: 2026</h3>
+                    <ul>
+                        <li>Relevant coursework: Data Structures and Algorithms, Software Engineering, Web Engineering, Web Usability, Integration Architectures, Database Systems, Operating Systems, Computer Networks</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="section languages-section">
-        <h2>Languages</h2>
-        <ul>
-            <li>French (First Language)</li>
-            <li>English (First Language)</li>
-            <li>German (C2)</li>
+    <aside class="sidebar">
+        <div class="download-section">
+            <a href="../Resume/cv.pdf" download="Bertrand_Alougou_Resume.pdf">
+                <button class="download-button">Download Resume</button>
+            </a>
+        </div>
+    </aside>
+
+</main>
+</body>
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        <ul class="social-links">
+            <li><a href="https://www.xing.com/profile/JeanBertrand_AlougouNgasse" target="_blank" rel="noopener noreferrer">Xing</a></li>
+            <li><a href="https://www.linkedin.com/in/jean-bertrand-alougou-ngasse/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/BertrandAlougou" target="_blank" rel="noopener noreferrer">GitHub</a></li>
         </ul>
     </div>
-
-    <div class="cta">
-        <button id="downloadCV">Download CV</button>
-    </div>
-</div>
-
-<script>
-    // Animate progress bars on load
-    window.addEventListener('load', () => {
-        const progressBarFills = document.querySelectorAll('.progress-bar-fill');
-        progressBarFills.forEach(bar => {
-            const width = bar.style.width;
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = width;
-            }, 100);
-        });
-    });
-
-    // Download CV functionality
-    const downloadCVButton = document.getElementById('downloadCV');
-    downloadCVButton.addEventListener('click', () => {
-        // Create a link element
-        const link = document.createElement('a');
-        link.href = 'path/to/your-cv.pdf'; // Replace with the actual path to your CV file
-        link.download = 'Your_Name_CV.pdf'; // Replace with the desired download file name
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    });
-</script>
-</body>
+</footer>
+<script src="../JavaScript/interactive-resume.js"></script>
+<script src="../JavaScript/main.js"></script>
 </html>

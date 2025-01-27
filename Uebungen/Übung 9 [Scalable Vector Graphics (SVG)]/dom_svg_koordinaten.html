@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<svg viewBox="0 0 200 200">
+    <rect id="resizable" x="0" y="0" width="100" height="50" fill="red">
+    </rect>
+</svg>
+<script>
+    const svgElement = document.querySelector('svg');
+    const rect = document.querySelector('#resizable');
+    svgElement.addEventListener("mousemove", event => {
+        const svgPoint = SVGTransform(event.x, event.y,svgElement);
+        rect.setAttribute('width',svgPoint.x);
+        rect.setAttribute('height',svgPoint.y);
+    });
+
+    // translate DOM to SVG coordinates
+    function SVGTransform(domX, domY, svgElement){
+        const svgPoint = svgElement.createsSVGPoint();
+        svgPoint.x = domX;
+        svgPoint.y = domY;
+        return svgPoint.matrixTransform( svgElement.getScreenCTM().inverse() );
+    }
+</script>

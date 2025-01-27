@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    svg:hover {
+      animation: zoom 0.5s forwards;
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(1);
+      }
+      to {
+        transform: scale(2);
+      }
+    }
+  </style>
+</head>
+<body>
+<h6> SVG Use The Platform </h6>
+<svg width="200" height="150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rechteck -->
+  <rect width="200" height="150" fill="#CB798D"/>
+
+  <!-- Erste Linie mit Text "Use" -->
+  <line x1="10" y1="25" x2="190" y2="25" stroke="white" stroke-width="3"/>
+  <text x="100" y="20" text-anchor="end"  font-size=" 2.6em" fill="white">Use</text>
+
+  <!-- Zweite Linie mit Text "The" -->
+  <line x1="10" y1="80" x2="190" y2="80" stroke="white" stroke-width="3"/>
+  <text x="100" y="75" text-anchor="end" font-size=" 2.6em" fill="white">The</text>
+
+  <!-- Dritte Linie mit Text "Platform" -->
+  <line x1="10" y1="135" x2="190" y2="135" stroke="white" stroke-width="3"/>
+  <text x="100" y="130" text-anchor="middle" font-size=" 2.6em" fill="white">Platform</text>
+</svg>
+
+</body>
+</html>

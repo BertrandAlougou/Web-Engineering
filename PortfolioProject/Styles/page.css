@@ -1,22 +1,198 @@
-/* page.css */
-body {
-    font-family: Arial, sans-serif;
+/* General Reset */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-#content {
-    padding: 100px 20px 20px; /* Add space to account for fixed navbar */
-    text-align: center;
-}
-
-h1 {
-    font-size: 36px;
+body {
+    font-family: 'Lora', serif;
+    background-color: #f9f9f9;
     color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures viewport fills the entire screen */
 }
 
-p {
-    font-size: 18px;
-    color: #666;
+/* Navbar Styles */
+nav.global-nav {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-toggle {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+}
+
+ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+ul.nav-links a:hover,
+ul.nav-links a.active {
+    background-color: #555;
+    border-radius: 4px;
+}
+
+/* Underline Effect with Pseudo-element */
+ul.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #FFD700;
+    transition: all 0.4s ease;
+    transform: translateX(-50%);
+}
+
+/* Hover Effect */
+ul.nav-links a:hover::after {
+    width: 100%;
+}
+
+ul.nav-links a:hover {
+    color: #FFD700;
+}
+
+/* Main Content */
+main {
+    flex: 1; /* Fills remaining space after header and footer */
+    text-align: center;
+    padding: 60px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero {
+    background-color: #e8f0ff;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed; /* Make the footer fixed */
+    bottom: 0; /* Position it at the bottom */
+    width: 100%; /* Set the width to 100% */
+}
+
+.footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-container p {
+    margin-bottom: 10px;
+}
+
+ul.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+ul.social-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+ul.social-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    ul.nav-links {
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        background-color: #333;
+        padding: 15px;
+        border-radius: 5px;
+        display: none;
+    }
+
+    ul.nav-links.show {
+        display: flex;
+    }
+
+    /* Adjust font sizes for smaller screens */
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Adjust padding and margins for smaller screens */
+    .hero {
+        padding: 30px;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
 }
