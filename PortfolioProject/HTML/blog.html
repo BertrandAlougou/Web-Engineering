@@ -13,16 +13,35 @@
 <body>
 <!-- Top Navbar -->
 <nav class="global-nav">
-    <div class="logo">Bertrand Alougou </div>
-    <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+    <a href="../index.html" class="logo">Bertrand Alougou</a>
+    <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">☰</button>
     <ul class="nav-links">
         <li><a href="homepage.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a>
+            <ul class="dropdown-menu">
+                <li><a href="interactive-resume.html">Interactive Résumé</a></li>
+            </ul>
+        </li>
+        <li><a href="portfolio.html">Portfolio</a>
+            <ul class="dropdown-menu">
+                <li><a href="ai.html">AI</a></li>
+                <li><a href="se.html">Software Engineering</a></li>
+                <li class="dropdown">
+                    <a href="we.html">Web Engineering</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="solution-navigator.html">Solution Navigator</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
         <li><a href="blog.html" class="active">Blog</a></li>
         <li><a href="contact.html">Contact</a></li>
     </ul>
 </nav>
+
+<div class="accessibility-btn light-mode" tabindex="0" aria-label="Toggle Accessibility Options">
+    <img src="../Images/icons/accessibility-icon.png" alt="Accessibility">
+</div>
 
 <main>
     <h1 class="page-title">Blog</h1>

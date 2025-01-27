@@ -139,18 +139,30 @@ body {
     background-color: #f8f8f8; /* Slightly lighter background on hover */
 }
 
-button#downloadCV {
+.download-button {
     background-color: #007bff; /* Blue button */
     color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button#downloadCV:hover {
+.download-button:hover {
     background-color: #0066cc;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background-color: #f0f0f0; /* Light Gray background */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Responsive Design */

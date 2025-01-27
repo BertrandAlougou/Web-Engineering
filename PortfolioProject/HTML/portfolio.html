@@ -17,12 +17,21 @@
     <button class="menu-toggle" aria-label="Open Menu" aria-expanded="false">☰</button>
     <ul class="nav-links">
         <li><a href="homepage.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="about.html">About</a>
+            <ul class="dropdown-menu">
+                <li><a href="interactive-resume.html">Interactive Résumé</a></li>
+            </ul>
+        </li>
         <li><a href="portfolio.html" class="active">Portfolio</a>
             <ul class="dropdown-menu">
                 <li><a href="ai.html">AI</a></li>
                 <li><a href="se.html">Software Engineering</a></li>
-                <li><a href="we.html">Web Engineering</a></li>
+                <li class="dropdown">
+                    <a href="we.html">Web Engineering</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="solution-navigator.html">Solution Navigator</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
         <li><a href="blog.html">Blog</a></li>

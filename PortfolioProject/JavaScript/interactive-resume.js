@@ -23,3 +23,28 @@ const progressBars = document.querySelectorAll('.progress-bar');
 progressBars.forEach(bar => {
     animateProgressBar(bar);
 });
+
+// Get the download button
+const downloadButton = document.querySelector('.download-button');
+
+// Add a loading state to the button
+function showLoading() {
+    downloadButton.textContent = "Downloading...";
+    downloadButton.disabled = true;
+}
+
+// Remove the loading state from the button
+function hideLoading() {
+    downloadButton.textContent = "Download Resume";
+    downloadButton.disabled = false;
+}
+
+// Add an event listener to the download button
+downloadButton.addEventListener('click', () => {
+    showLoading();
+
+    // Simulate a download delay (replace with actual download logic)
+    setTimeout(() => {
+        hideLoading();
+    }, 2000); // Simulate a 2-second download
+});
