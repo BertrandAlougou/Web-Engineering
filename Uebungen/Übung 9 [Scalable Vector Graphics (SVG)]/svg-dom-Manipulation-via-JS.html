@@ -1,0 +1,16 @@
+<!doctype html>
+<svg id="svg"></svg>
+<script>
+const svg = document.getElementById("svg");
+svg.innerHTML = `
+<rect x="10" y="10" width="100" height="100" />
+<circle id="circle" cx="60" cy="60" r="40"
+stroke="black" stroke-width="3" fill="red" />
+`;
+let color = 'red';
+const circle = document.getElementById("circle");
+setInterval(()=>{
+color = color === 'red'? 'green' : 'red';
+circle.setAttribute( 'fill', color );
+}, 500);
+</script>

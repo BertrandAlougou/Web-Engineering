@@ -1,0 +1,11 @@
+<!doctype html>
+<svg>
+<circle id="circle" cx="100" cy="100" r="50" fill="red"></circle>
+</svg>
+<script>
+const circle = document.getElementById('circle');
+circle.addEventListener("mousemove", event => {
+circle.setAttribute('cx', event.x );
+circle.setAttribute('cy', event.y );
+});
+</script>
